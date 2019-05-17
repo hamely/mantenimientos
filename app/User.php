@@ -36,4 +36,27 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+     protected $fillable = [
+        'name',
+        'email',
+        'password',
+        'language_id',
+        'privilege',
+        'status'
+    ];
+    public function hasRoles(array $roles)
+    {
+       
+       //dd($usuarios);
+       ///dd($usuarios->abbr);
+       foreach ($roles as $role) 
+        {
+                if ($this->privilege == $role)
+                {
+                    return true;
+                }       
+        }
+       return false;
+    }
 }
