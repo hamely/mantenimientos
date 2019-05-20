@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>DataTables | Gentelella</title>
+    <title>Matenimiento</title>
 
     <!-- Bootstrap -->
     <link href="{{ URL::asset('admin/vendors/bootstrap/dist/css/bootstrap.min.css')}}" rel="stylesheet">
@@ -23,7 +23,7 @@
     <link href="{{ URL::asset('admin/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{ URL::asset('admin/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{ URL::asset('admin/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css')}}" rel="stylesheet">
- 
+
     <link href="{{ URL::asset('admin/build/css/custom.min.css')}}" rel="stylesheet">
 
 </head>
@@ -75,7 +75,7 @@
     <!-- Custom Theme Scripts -->
     <script src="{{ URL::asset('admin/build/js/custom.min.js')}}"></script>
 
-  
+
   @yield('script')
 </body>
 </html>

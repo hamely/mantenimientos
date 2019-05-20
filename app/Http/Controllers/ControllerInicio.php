@@ -10,4 +10,8 @@ class ControllerInicio extends Controller
     {
     	return view('inicio');
     }
+    public function inicio()
+    {
+    	return redirect('/login');
+    }
 }

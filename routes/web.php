@@ -14,6 +14,7 @@
 // Route::get('/inicio', function () {
 //     return view('welcome');
 // });
+Route::get('/','ControllerInicio@inicio');
 Route::get('/inicio','ControllerInicio@index');
 Auth::routes();
 
