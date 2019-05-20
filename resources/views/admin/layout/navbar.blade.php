@@ -77,7 +77,7 @@
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                     <img src="images/img.jpg" alt="">{{ auth()->user()->name }}
                     <span class=" fa fa-angle-down"></span>
-                  </a>
+                  </a><br>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
 
                     <li>
@@ -86,6 +86,13 @@
                                          <i class="fa fa-sign-out fa-lg"></i> {{ __('Cerrar Session') }}
                         </a>
                     </li>
+
+                    <div class="pull-right">
+
+                        <form id="logout-form" class="btn btn-default btn-flat" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                            {{ csrf_field() }}
+                        </form>
+                    </div>
 
                   </ul>
                 </li>
