@@ -19,3 +19,8 @@ Route::get('/inicio','ControllerInicio@index');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+Route::resource('ponentes', 'PonenteController');
+
+Route::resource('nuevos', 'nuevoController');
