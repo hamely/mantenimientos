@@ -25,6 +25,9 @@ class UpdateUsuarioRequest extends FormRequest
      */
     public function rules()
     {
-        return Usuario::$rules;
+        return [
+            'name'=>'required',
+            'password1'=>'required',
+        ];
     }
 }

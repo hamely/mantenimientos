@@ -117,15 +117,30 @@ class UsuarioController extends AppBaseController
      */
     public function update($id, UpdateUsuarioRequest $request)
     {
-        $usuario = $this->usuarioRepository->find($id);
 
+        $usuario = User::find($id);
         if (empty($usuario)) {
             Flash::error('Usuario not found');
 
             return redirect(route('usuarios.index'));
         }
+        if(is_null($request->password))
+        {
 
-        $usuario = $this->usuarioRepository->update($request->all(), $id);
+            $user = User::find($id);
+            $user->name = $request->name;
+            $user->email = $request->email;
+            $user->save();
+
+        }else
+        {
+            $user = User::find($id);
+            $user->name = $request->name;
+            $user->email = $request->email;
+            $user->password = bcrypt( $request->input('password1') );
+            $user->save();
+
+        }
 
         Flash::success('Usuario updated successfully.');
 
@@ -143,7 +158,7 @@ class UsuarioController extends AppBaseController
      */
     public function destroy($id)
     {
-        $usuario = $this->usuarioRepository->find($id);
+        $usuario = User::find($id);
 
         if (empty($usuario)) {
             Flash::error('Usuario not found');
@@ -151,7 +166,10 @@ class UsuarioController extends AppBaseController
             return redirect(route('usuarios.index'));
         }
 
-        $this->usuarioRepository->delete($id);
+        $user = User::find($id);
+
+        $user->delete();
+
 
         Flash::success('Usuario deleted successfully.');
 
