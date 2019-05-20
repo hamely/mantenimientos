@@ -32,8 +32,19 @@
 
                   </div>
                   <div class="x_content">
-                  <h1 class="pull-left"> <a class="btn btn-primary pull-right" style="margin-top: -10px;margin-bottom: 5px" href="{!! route('ponentes.create') !!}">Crear</a></h1>
 
+                  @include('adminlte-templates::common.errors')
+                    <div class="box box-primary">
+                        <div class="box-body">
+                            <div class="row">
+                                {!! Form::model($usuario, ['route' => ['usuarios.update', $usuario->id], 'method' => 'patch']) !!}
+
+                                        @include('admin.usuarios.fields')
+
+                                {!! Form::close() !!}
+                            </div>
+                        </div>
+                    </div>
 
 
                   </div>

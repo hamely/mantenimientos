@@ -1,3 +1,4 @@
+
 @extends('admin.layout.master')
 
 @section('content')
@@ -31,10 +32,11 @@
                     <div class="clearfix"></div>
 
                   </div>
+                  <h1 class="pull-left"> <a class="btn btn-primary pull-right" style="margin-top: -10px;margin-bottom: 5px" href="{!! route('usuarios.create') !!}">Crear</a></h1>
                   <div class="x_content">
-                  <h1 class="pull-left"> <a class="btn btn-primary pull-right" style="margin-top: -10px;margin-bottom: 5px" href="{!! route('ponentes.create') !!}">Crear</a></h1>
 
 
+                  @include('admin.usuarios.table')
 
                   </div>
                 </div>
@@ -50,8 +52,17 @@
 
 
 @section('script')
-
+<script>
+$(document).ready(function() {
+  $('#inicio').DataTable({
+    "language": {
+      "url": "/admin/idioma/Spanish.json"
+    }
+  });
+});
+</script>
 
 
 @endsection
+
 

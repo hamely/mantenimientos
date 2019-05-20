@@ -3,16 +3,19 @@
 @section('content')
 
  <div class="right_col" role="main">
- <section class="content-header">
-
-    </section>
           <div class="">
+            <div class="page-title">
+
+
+            </div>
+
+            <div class="clearfix"></div>
 
             <div class="row">
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                  @include('flash::message')
+
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
@@ -29,13 +32,20 @@
                       </li>
                     </ul>
                     <div class="clearfix"></div>
-
                   </div>
                   <div class="x_content">
-                  <h1 class="pull-left"> <a class="btn btn-primary pull-right" style="margin-top: -10px;margin-bottom: 5px" href="{!! route('ponentes.create') !!}">Crear</a></h1>
+                    <p class="text-muted font-13 m-b-30">
+                    </p>
+                    @include('adminlte-templates::common.errors')
+                    <div class="box-body">
+                            <div class="row">
+                            {!! Form::open(['route' => 'usuarios.store']) !!}
 
+                                @include('admin.usuarios.fields')
 
-
+                            {!! Form::close() !!}
+                            </div>
+                        </div>
                   </div>
                 </div>
               </div>
@@ -50,8 +60,15 @@
 
 
 @section('script')
-
+<script>
+$(document).ready(function() {
+  $('#inicio').DataTable({
+    "language": {
+      "url": "/admin/idioma/Spanish.json"
+    }
+  });
+});
+</script>
 
 
 @endsection
-

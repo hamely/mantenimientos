@@ -4,19 +4,9 @@
 
  <div class="right_col" role="main">
  <section class="content-header">
-        <h1 class="pull-left">Ponentes</h1>
-        <h1 class="pull-right">
-           <a class="btn btn-primary pull-right" style="margin-top: -10px;margin-bottom: 5px" href="{!! route('ponentes.create') !!}">Crear</a>
-        </h1>
+
     </section>
           <div class="">
-            <div class="page-title">
-
-
-            </div>
-
-            <div class="clearfix">
-            </div>
 
             <div class="row">
               <div class="col-md-12 col-sm-12 col-xs-12">
@@ -39,12 +29,42 @@
                       </li>
                     </ul>
                     <div class="clearfix"></div>
+
                   </div>
                   <div class="x_content">
+                  <h1 class="pull-left"> <a class="btn btn-primary pull-right" style="margin-top: -10px;margin-bottom: 5px" href="{!! route('ponentes.create') !!}">Crear</a></h1>
 
-                    <p class="text-muted font-13 m-b-30">
-                    </p>
-                         @include('admin.ponentes.table')
+                  <table id="inicio" class="table table-striped table-bordered">
+                      <thead>
+                        <tr>
+                          <th>Name</th>
+                          <th>Apellido</th>
+                          <th>Action</th>
+                        </tr>
+                      </thead>
+
+
+                      <tbody>
+                      @foreach($ponentes as $ponente)
+                        <tr>
+                          <td>{!! $ponente->name !!}</td>
+                          <td>{!! $ponente->apellido !!}</td>
+                          <td>
+                                  {!! Form::open(['route' => ['ponentes.destroy', $ponente->id], 'method' => 'delete']) !!}
+                                        <div class='btn-group'>
+                                            <a href="{!! route('ponentes.show', [$ponente->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-eye-open"></i></a>
+                                            <a href="{!! route('ponentes.edit', [$ponente->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-edit"></i></a>
+                                            {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
+                                        </div>
+                                    {!! Form::close() !!}
+                          </td>
+
+                        </tr>
+                        @endforeach
+
+                      </tbody>
+                    </table>
+
                   </div>
                 </div>
               </div>

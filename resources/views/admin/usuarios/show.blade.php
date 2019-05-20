@@ -1,3 +1,4 @@
+
 @extends('admin.layout.master')
 
 @section('content')
@@ -32,10 +33,8 @@
 
                   </div>
                   <div class="x_content">
-                  <h1 class="pull-left"> <a class="btn btn-primary pull-right" style="margin-top: -10px;margin-bottom: 5px" href="{!! route('ponentes.create') !!}">Crear</a></h1>
 
-
-
+                       @include('admin.usuarios.show_fields')
                   </div>
                 </div>
               </div>
@@ -50,8 +49,15 @@
 
 
 @section('script')
-
+<script>
+$(document).ready(function() {
+  $('#inicio').DataTable({
+    "language": {
+      "url": "/admin/idioma/Spanish.json"
+    }
+  });
+});
+</script>
 
 
 @endsection
-
