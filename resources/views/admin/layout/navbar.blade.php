@@ -58,7 +58,10 @@
                       <li><a href="{{URL::route('equipos.index') }}">Equipos</a></li>
                       <li><a href="{{URL::route('marcas.index') }}">Marcas</a></li>
                       <li><a href="{{URL::route('unidadMedidas.index') }}">Unidad Medida</a></li>
-                      
+                      <li><a href="{{URL::route('tipoEquipos.index') }}">Tipo de equipos</a></li>
+                      <li><a href="{{URL::route('ubicacions.index') }}">Ubicacion</a></li>
+                      <li><a href="{{URL::route('tipoInformes.index') }}">Tipo de informe</a></li>
+                      <li><a href="{{URL::route('categorias.index') }}">Categoria</a></li>
                     </ul>
                   </li>
 

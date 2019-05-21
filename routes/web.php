@@ -29,5 +29,9 @@ Route::resource('tipoMantenimientos', 'tipo_mantenimientoController');
 Route::resource('areas', 'AreaController');
 Route::resource('equipos', 'EquipoController');
 Route::resource('marcas', 'MarcaController');
-
 Route::resource('unidadMedidas', 'Unidad_medidaController');
+Route::resource('tipoEquipos', 'Tipo_equipoController');
+Route::resource('ubicacions', 'UbicacionController');
+Route::resource('tipoInformes', 'Tipo_informeController');
+Route::resource('categorias', 'CategoriaController');
+
