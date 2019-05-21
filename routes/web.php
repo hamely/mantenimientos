@@ -27,3 +27,6 @@ Route::resource('nuevos', 'nuevoController');
 
 
 Route::resource('usuarios', 'UsuarioController');
+
+
+Route::resource('tipoMantenimientos', 'tipo_mantenimientoController');
