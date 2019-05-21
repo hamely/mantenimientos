@@ -58,6 +58,7 @@
 
                       <li><a href="{{URL::route('equipos.index') }}">Equipos</a></li>
                       <li><a href="{{URL::route('tipoEquipos.index') }}">Tipo de equipos</a></li>
+                      <li><a href="{{URL::route('ubicacions.index') }}">Ubicacion</a></li>
                     </ul>
                   </li>
 
