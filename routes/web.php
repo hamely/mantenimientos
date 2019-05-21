@@ -28,4 +28,6 @@ Route::resource('usuarios', 'UsuarioController');
 Route::resource('tipoMantenimientos', 'tipo_mantenimientoController');
 Route::resource('areas', 'AreaController');
 Route::resource('equipos', 'EquipoController');
+Route::resource('marcas', 'MarcaController');
 
+Route::resource('unidadMedidas', 'Unidad_medidaController');

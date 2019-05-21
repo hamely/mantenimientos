@@ -5,7 +5,7 @@
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Mantenimineto</span></a>
+              <a href="index.html" class="site_title"><i class="fa fa-truck"></i> <span>Mantenimiento</span></a>
             </div>
 
             <div class="clearfix"></div>
@@ -16,7 +16,7 @@
                 <img src="/admin/login/usuario.jpg" alt="..." class="img-circle profile_img">
               </div>
               <div class="profile_info">
-                <span>Administrador,</span>
+                <span>Administrador</span>
                 <h2>Admin</h2>
               </div>
             </div>
@@ -55,9 +55,10 @@
                       <li><a href="{{URL::route('tipoMantenimientos.index') }}">Tipo mantenimiento</a></li>
 
                       <li><a href="{{URL::route('areas.index') }}">Area</a></li>
-
                       <li><a href="{{URL::route('equipos.index') }}">Equipos</a></li>
-
+                      <li><a href="{{URL::route('marcas.index') }}">Marcas</a></li>
+                      <li><a href="{{URL::route('unidadMedidas.index') }}">Unidad Medida</a></li>
+                      
                     </ul>
                   </li>
 
