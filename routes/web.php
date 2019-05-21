@@ -31,3 +31,5 @@ Route::resource('equipos', 'EquipoController');
 Route::resource('tipoEquipos', 'Tipo_equipoController');
 
 Route::resource('ubicacions', 'UbicacionController');
+
+Route::resource('tipoInformes', 'Tipo_informeController');
