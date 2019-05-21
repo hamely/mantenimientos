@@ -27,6 +27,21 @@ class PonenteController extends AppBaseController
      *
      * @return Response
      */
+
+     public function getIdeas()
+     {
+        return $this->ponenteRepository::orderBy('id','DESC')->get();
+     }
+
+     public function guardar(Request $request)
+     {
+         $this->validate($request,[
+            'description' => 'required'
+         ]);
+         $this->ponenteRepository::create($request->all());
+         return;
+     }
+
     public function index(Request $request)
     {
         $ponentes = $this->ponenteRepository->all();

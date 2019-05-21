@@ -30,10 +30,11 @@
 
 
 @include('admin.layout.navbar')
+<div id="app">
 
 @yield('content')
 
-
+</div>
 
 
  <footer>
@@ -74,7 +75,7 @@
 
     <!-- Custom Theme Scripts -->
     <script src="{{ URL::asset('admin/build/js/custom.min.js')}}"></script>
-
+    <script src="{{ asset('js/app.js') }}" defer></script>
 
   @yield('script')
 </body>
