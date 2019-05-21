@@ -22,13 +22,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 Route::resource('ponentes', 'PonenteController');
-
 Route::resource('nuevos', 'nuevoController');
 
-
 Route::resource('usuarios', 'UsuarioController');
-
-
 Route::resource('tipoMantenimientos', 'tipo_mantenimientoController');
-
 Route::resource('areas', 'AreaController');
+Route::resource('equipos', 'EquipoController');
+
