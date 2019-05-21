@@ -5,7 +5,6 @@
                 <th>Name</th>
         <th>Email</th>
         <th>Password</th>
-        <th>Language Id</th>
         <th>Privilege</th>
         <th>Status</th>
                 <th colspan="1">Action</th>
@@ -17,7 +16,6 @@
                 <td>{!! $usuario->name !!}</td>
             <td>{!! $usuario->email !!}</td>
             <td>{!! $usuario->password !!}</td>
-            <td>{!! $usuario->language_id !!}</td>
             <td>{!! $usuario->privilege !!}</td>
             <td>{!! $usuario->status !!}</td>
                 <td>
