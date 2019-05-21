@@ -57,7 +57,7 @@
                       <li><a href="{{URL::route('areas.index') }}">Area</a></li>
 
                       <li><a href="{{URL::route('equipos.index') }}">Equipos</a></li>
-
+                      <li><a href="{{URL::route('tipoEquipos.index') }}">Tipo de equipos</a></li>
                     </ul>
                   </li>
 
