@@ -22,7 +22,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 Route::resource('ponentes', 'PonenteController');
-Route::get('mis-ponentes','PonenteController@getIdeas');
+Route::get('mis-ponentes','PonenteController@getPonentes');
 Route::post('guardar-ponentes','PonenteController@guardar');
 
 Route::resource('nuevos', 'nuevoController');
