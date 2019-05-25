@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "44da219ccb93cde390d9f9349135a4b8",
+    "content-hash": "280754ec88de934042a90762fd09cae4",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -4975,8 +4975,8 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "infyomlabs/laravel-generator": 20,
-        "infyomlabs/adminlte-templates": 20
+        "infyomlabs/adminlte-templates": 20,
+        "infyomlabs/laravel-generator": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,

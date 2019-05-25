@@ -36,20 +36,19 @@
                       <li><a href="index3.html">Dashboard3</a></li>
                     </ul>
                   </li>
-                  <li><a><i class="fa fa-home"></i> Usuario <span class="fa fa-chevron-down"></span></a>
+                  
+                  <li><a><i class="fa fa-clipboard"></i> ÓRDEN DE TRABAJO <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="{{URL::route('equipoPrincipal.index') }}">Equipo</a></li>
+                    </ul>
+                  </li>
+
+                  <li><a><i class="fa fa-home"></i> USUARIOS <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="{{URL::route('usuarios.index') }}">inicio</a></li>
-                      <li><a href="index2.html">Dashboard2</a></li>
-                      <li><a href="index3.html">Dashboard3</a></li>
                     </ul>
                   </li>
-                  <li><a><i class="fa fa-home"></i> PROCESOS <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="">Incidencia</a></li>
-                      <li><a href="index2.html">Dashboard2</a></li>
-                      <li><a href="index3.html">Dashboard3</a></li>
-                    </ul>
-                  </li>
+                  
                   <li><a><i class="fa fa-home"></i> MANTENIMiENTOS <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="{{URL::route('tipoMantenimientos.index') }}">Tipo mantenimiento</a></li>

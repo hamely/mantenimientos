@@ -37,4 +37,7 @@ Route::resource('tipoEquipos', 'Tipo_equipoController');
 Route::resource('ubicacions', 'UbicacionController');
 Route::resource('tipoInformes', 'Tipo_informeController');
 Route::resource('categorias', 'CategoriaController');
+//Equipo proceso
+Route::resource('equipoPrincipal', 'EquipoPrincipal');
 
+//Fin equipo proceso
