@@ -11,7 +11,7 @@
 	      </label>
 		   <div class="col-md-3 col-sm-3 col-xs-6">
 		   
-		     <input type="text" class="form-control" placeholder="First name">
+		     <input type="text" class="form-control" placeholder="Buscar id">
 		
 		  </div>
 	</div>
@@ -89,8 +89,49 @@
 @endsection
 
 
+<div class="modal fade" id="Busquedas" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title" id="busquedaTitulo" name="busquedaTitulo">Busqueda</h4>
+        </div>
+        <div class="modal-body">
+         
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 @section('script')
 
+
+{{--   <script>
+	$(document).ready(function(){
+	  	
+	  function busquedaModalEquipo(textoTitulo)
+	  {
+	
+	  	 $('#busqueda').append(textoTitulo);
+	  	 $('#Busquedas').modal('show');
+
+	  }
+	 
+
+	});
+</script> --}}
+
+<script>
+function busquedaFunction(titulo) {
+ 	
+ 	 $('#busquedaTitulo').html(titulo);
+	 $('#Busquedas').modal('show');
+}
+</script>
 
 @endsection
 

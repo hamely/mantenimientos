@@ -32,7 +32,7 @@
             <input type="text" id="equipo_padre" name="equipo_padre" required="required" class="form-control col-md-7 col-xs-12">
         </div>
         <div class="col-md-3 col-sm-6 col-xs-12">
-        	<button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#myModal"><span class="fa fa-search-plus"></span></button>
+        	<button type="button" class="btn btn-info btn-xs" onclick="busquedaFunction('Equipo padre ')"><span class="fa fa-search-plus"></span></button>
         </div>
     </div>
   
@@ -43,7 +43,7 @@
             <input id="descripcion" name="descripcion" class="date-picker form-control col-md-7 col-xs-12" required="required" type="text">
         </div>
         <div class="col-md-3 col-sm-6 col-xs-12">
-        	<button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#myModal"><span class="fa fa-search-plus"></span></button>
+        	<button type="button" class="btn btn-info btn-xs" onclick="busquedaFunction('Descripción')"><span class="fa fa-search-plus"></span></button>
         </div>
     </div>
 
@@ -54,7 +54,7 @@
             <input id="tipo" name="tipo" class="date-picker form-control col-md-7 col-xs-12" required="required" type="text">
         </div>
         <div class="col-md-3 col-sm-6 col-xs-12">
-        	<button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#myModal"><span class="fa fa-search-plus"></span></button>
+        	<button type="button" class="btn btn-info btn-xs" onclick="busquedaFunction('Tipo')"><span class="fa fa-search-plus"></span></button>
         </div>
     </div>
    <div class="form-group">
@@ -65,7 +65,7 @@
         </div>
 
 		<div class="col-md-3 col-sm-6 col-xs-12">
-        	<button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#myModal"><span class="fa fa-search-plus"></span></button>
+        	<button type="button" class="btn btn-info btn-xs" onclick="busquedaFunction('Ubicación')"><span class="fa fa-search-plus"></span></button>
         </div>
 
     </div>
@@ -99,21 +99,27 @@
             <input id="pieza" class="date-picker form-control col-md-7 col-xs-12" required="required" type="text">
         </div>
          <div class="col-md-3 col-sm-6 col-xs-12">
-        	<button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#myModal"><span class="fa fa-search-plus"></span></button>
+        	<button type="button" class="btn btn-info btn-xs" onclick="busquedaFunction('Piezas')"><span class="fa fa-search-plus"></span></button>
         </div>
     </div>
     <div class="form-group">
         <label class="control-label col-md-1 col-sm-1 col-xs-1">M. Obra 
         </label>
         <div class="col-md-3 col-sm-6 col-xs-12">
-            <input id="birthday" class="date-picker form-control col-md-7 col-xs-12" required="required" type="text">
+            <input id="m_obra" name="m_obra" class="date-picker form-control col-md-7 col-xs-12" required="required" type="text">
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-12">
+        	<button type="button" class="btn btn-info btn-xs" onclick="busquedaFunction('M. Obra ')"><span class="fa fa-search-plus"></span></button>
         </div>
     </div>
 	<div class="form-group">
         <label class="control-label col-md-1 col-sm-1 col-xs-1">Costo Misc. 
         </label>
         <div class="col-md-3 col-sm-6 col-xs-12">
-            <input id="birthday" class="date-picker form-control col-md-7 col-xs-12" required="required" type="text">
+            <input id="costo_mis" name="costo_mis" class="date-picker form-control col-md-7 col-xs-12" required="required" type="text">
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-12">
+        	<button type="button" class="btn btn-info btn-xs" onclick="busquedaFunction('Costo Misc.')"><span class="fa fa-search-plus"></span></button>
         </div>
     </div>
 
@@ -128,20 +134,3 @@
 
 
 
-<div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog modal-sm">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Busqueda</h4>
-        </div>
-        <div class="modal-body">
-         
-
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
