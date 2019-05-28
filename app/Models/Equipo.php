@@ -17,15 +17,34 @@ class Equipo extends Model
 {
     use SoftDeletes;
 
-    public $table = 'equipos';
+    public $table = 'equipo';
     
 
     protected $dates = ['deleted_at'];
 
 
     public $fillable = [
-        'nombre',
-        'codigo'
+        'descripcion',
+        'id_marca',
+        'id_pais',
+        'peso',
+        'modelo',
+        'peso_envio',
+        'estado_cliente',
+        'umedpeso',
+        'altura',
+        'ancho',
+        'largo',
+        'funcion',
+        'ImagenA',
+        'Imagen',
+        'umedimens',
+        'cantidad',
+        'potencia',
+        'tipotenc',
+        'user_crea',
+        'estado_equipo',
+        'id_empresa'
     ];
 
     /**
@@ -34,9 +53,9 @@ class Equipo extends Model
      * @var array
      */
     protected $casts = [
-        'id' => 'integer',
-        'nombre' => 'string',
-        'codigo' => 'string'
+        // 'id' => 'integer',
+        // 'nombre' => 'string',
+        // 'codigo' => 'string'
     ];
 
     /**

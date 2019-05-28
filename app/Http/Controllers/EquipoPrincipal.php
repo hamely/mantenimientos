@@ -26,6 +26,8 @@ class EquipoPrincipal extends Controller
         //
     }
 
+  
+
     /**
      * Store a newly created resource in storage.
      *
