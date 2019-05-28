@@ -5,7 +5,7 @@
           <div class="">
             <div class="page-title">
               <div class="title_left">
-              <h3>GENERAR ORDEN DE SERVICIO <small></small></h3>
+              <h3>PROGRAMAR ORDEN DE SERVICIO <small></small></h3>
               </div>
             </div>
            
@@ -17,7 +17,7 @@
                  
                 <div class="x_panel">
                   <div class="x_title">
-                  <a href="{{('/ordenServicio/create')}}" class="btn btn-success "><i class="fa fa-plus-circle"> Crear    </i></a>
+                  <a href="{{('/programarOrdenServicio/create')}}" class="btn btn-success "><i class="fa fa-plus-circle"> Crear    </i></a>
                     <h2><small></small></h2>
                     <ul class="nav navbar-right panel_toolbox">
                     

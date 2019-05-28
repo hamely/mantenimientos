@@ -1,24 +1,22 @@
-
 @extends('admin.layout.master')
 
 @section('content')
 
  <div class="right_col" role="main">
  <section class="content-header">
-
 	<div class="form-group">
 		  <label class="control-label col-md-1 col-sm-1 col-xs-1" for="first-name"> 
 		  	Buscar Id 
 	      </label>
-      
+        <button id="nuevo" name="nuevo" >Buscar</button>
 		   <div class="col-md-3 col-sm-3 col-xs-6">
 		   
 		     <input type="text" class="form-control" placeholder="Buscar id">
-		  <br>
+		
 		  </div>
 	</div>
     </section>
-		
+
           <div class="">
  					
             <div class="row">
@@ -42,11 +40,10 @@
                       </li>
                     </ul>
                     <div class="clearfix"></div>
-
-                    Equipos 
+                    Generar orden de servicio
                    
                   </div>
-                  <div class="x_content">
+                <div class="x_content">
 
                   	 
 
@@ -61,12 +58,11 @@
                          <li role="presentation" class=""><a href="#tab_content3" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">piezas</a>
                         </li>
 
-                        
                     </ul>
                     <div id="myTabContent" class="tab-content">
                         <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
-							
- 					 	        	@include('admin.equipo_principal.registrar')
+
+ 					 		@include('admin.programarOrden.registrar')
 		                      
                         </div>
                         <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab">
@@ -132,35 +128,20 @@ function busquedaFunction(titulo,opcion) {
  	
     $('#busquedaTitulo').html(titulo);
 
-    var opcion;
-    var  trValue;
     if(opcion=='1')
     {
-      opcion=1;
       var url='{{ route('listarEquipoCategoria') }}';
-    }
-    if(opcion=='2')
-    {
-      opcion=2;
-      var url='{{ route('listarMarcas') }}';
     }
     if(opcion=='3')
     {
-      opcion=3;
       var url='{{ route('listarTipos') }}';
-     
     }
     if(opcion=='4')
     {
-      opcion=4;
       var url='{{ route('listarPaises') }}';
     }
-    if(opcion=='5')
-    {
-      opcion=5;
-      var url='{{ route('listarEmpresas') }}';
-    }
     
+    var opcionUrl;
     var htmlListar;
     $("#tableListar").html('');
     $.ajax({
@@ -172,156 +153,61 @@ function busquedaFunction(titulo,opcion) {
                     },
                  dataType: 'JSON',
                   success: function(respuesta) {
-                 
-
-	                     if(opcion=='1')
-	                     {
-	 						
-	 						$.each(respuesta.data,function(index,element)
-	                            { 
-	                              htmlListar=htmlListar + "<tr value='"+element.codigo+"'>"+ 
-	                                                      "<td id='codigo'>"+element.codigo+" </td>"+
-	                                                      "<td class='boton' style='cursor:pointer;'>"+element.descripcion+"</td>"+
-	                                                    "</tr>";
-	                            });
-
-	                            $("#tableListar").html(htmlListar);
-	                      
-	                	 }
-
-	                	 if(opcion=='2')
-	                     {
-	 						
-	 						$.each(respuesta.data,function(index,element)
-	                            { 
-	                              htmlListar=htmlListar + "<tr value='"+element.codigo+"'>"+ 
-	                                                      "<td id='codigo'>"+element.codigo+" </td>"+
-	                                                      "<td class='boton' style='cursor:pointer;'>"+element.descripcion+"</td>"+
-	                                                    "</tr>";
-	                            });
-
-	                            $("#tableListar").html(htmlListar);
-	                      
-	                	 }
-
-						 if(opcion=='3')
-		                	 {
-		 						
-		 					
-		 						$.each(respuesta.data,function(index,element)
-		                            { 
-		                              htmlListar=htmlListar + "<tr value='"+element.codigo+"'>"+ 
-		                                                      "<td id='codigo'>"+element.codigo+" </td>"+
-		                                                      "<td class='boton' style='cursor:pointer;'>"+element.descripcion+"</td>"+
-		                                                    "</tr>";
-		                            });
-
-		                            $("#tableListar").html(htmlListar);
-		                      
-		                	 }
-
-		                    if(opcion=='4')
-		                    {
-		                        $.each(respuesta.data,function(index,element)
-		                            { 
-		                              htmlListar=htmlListar + "<tr value='"+element.nombre+"'>"+ 
-		                                                      "<td id='codigo'>"+element.id+" </td>"+
-		                                                      "<td class='boton' style='cursor:pointer;'>"+element.nombre+"</td>"+
-		                                                    "</tr>";
-		                            });
-
-		                            $("#tableListar").html(htmlListar);
-		                    }
-
-		                    if(opcion=='5')
-		                    {
-		                        $.each(respuesta.data,function(index,element)
-		                            { 
-		                              htmlListar=htmlListar + "<tr value='"+element.nombre+"'>"+ 
-		                                                      "<td id='codigo'>"+element.id+" </td>"+
-		                                                      "<td class='boton' style='cursor:pointer;'>"+element.nombre+"</td>"+
-		                                                    "</tr>";
-		                            });
-
-		                            $("#tableListar").html(htmlListar);
-		                    }
-
-
-
-	                	 $('#Busquedas').modal('show');
-
-
-                    }
-              });
-
-
-             $(".table").on('click','tr',function(e){
-                    e.preventDefault();
-                    trValue= $(this).attr('value');
-                    
-                    if(opcion=='1')
+                    opcionUrl=respuesta.opcionUrl;
+                    if(opcion=='1'|| opcion=='3' )
                     {
-                      opcion=0;
-                      $('#equipo_padre').val(trValue);
-              
-                    }
-                    if(opcion=='2')
-                    {
-                      opcion=0;
-                      $('#marca').val(trValue);
-              
-                    }
-                    if(opcion=='3')
-                    {
-                      opcion=0;
-                      $('#tipo').val(trValue);
-                   
+                        $.each(respuesta.data,function(index,element)
+                            { 
+                              htmlListar=htmlListar + "<tr value='"+element.codigo+"'>"+ 
+                                                      "<td id='codigo'>"+element.codigo+" </td>"+
+                                                      "<td class='boton' style='cursor:pointer;'>"+element.descripcion+"</td>"+
+                                                    "</tr>";
+                            });
+
+                            $("#tableListar").html(htmlListar);
                     }
                     if(opcion=='4')
                     {
-                      opcion=0;
-                      $('#ubicacion').val(trValue);
-                    
-                    }
-                    if(opcion=='5')
-                    {
-                      opcion=0;
-                      $('#empresa').val(trValue);
-                    
-                    }
+                        $.each(respuesta.data,function(index,element)
+                            { 
+                              htmlListar=htmlListar + "<tr value='"+element.nombre+"'>"+ 
+                                                      "<td id='codigo'>"+element.id+" </td>"+
+                                                      "<td class='boton' style='cursor:pointer;'>"+element.nombre+"</td>"+
+                                                    "</tr>";
+                            });
 
+                            $("#tableListar").html(htmlListar);
+                    }
+                      
+                  }
+              });
+
+             $('#Busquedas').modal('show');
+             
+           
+
+             $(".table").on('click','tr',function(e){
+                    e.preventDefault();
+                    var  trValue= $(this).attr('value');
+                    
+                    if(opcion=='1')
+                    {
+                      $('#equipo_padre').val(trValue);
                       $('#Busquedas').modal('hide');
+                    }
+                    if(opcion=='3')
+                    {
+                      $('#tipo').val(trValue);
+                      $('#Busquedas').modal('hide');
+                    }
+                    if(opcion=='4')
+                    {
+                      $('#ubicacion').val(trValue);
+                      $('#Busquedas').modal('hide');
+                    }
                   
                 }); 
-      }
-$(function() 
-{
-
-     
-      $( "#create_equipo" ).click(function(e)
-       {
-			  
-
-			   e.preventDefault(); 
-			    $.ajax({                        
-			           url:'{{ route('CrearEquipoPrincipal') }}',
-		             type: 'POST',           
-			           data: $("#form_equipo").serialize(), 
-			           success: function(data)             
-			           {
-			              
-			              $("#form_equipo")[0].reset();
-
-			           }
-      			 });
-
-					  
-		});
-   
-        
-});       
-
-       
+      }     
      
 </script>
 

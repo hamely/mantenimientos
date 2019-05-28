@@ -47,7 +47,7 @@
                     <ul class="nav child_menu">
                       <li><a href="{{ url('incidencias') }}">Ticket de atención</a></li>
                       <li><a href="{{ url('ordenServicio') }}">Orden de servicio</a></li>
-                      <li><a href="">Programar O.S</a></li>
+                      <li><a href="{{ url('programarOrdenServicio')}}">Programar O.S</a></li>
                       <li><a href="">Informe técnico</a></li>
                     </ul>
                   </li>
@@ -77,6 +77,7 @@
                       <li><a href="{{URL::route('frecuencias.index') }}">Frecuencia</a></li>
                       <li><a href="{{URL::route('tipos.index') }}">Tipo</a></li>
                       <li><a href="{{URL::route('tipoIncidencias.index') }}">Tipo incidencias</a></li>
+                      <li><a href="{{URL::route('medidors.index') }}">Medidores</a></li>
                     </ul>
                   </li>
 
