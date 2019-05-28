@@ -134,9 +134,12 @@ function busquedaFunction(titulo,opcion) {
     {
       var url='{{ route('listarEquipoCategoria') }}';
     }
+    if(opcion=='4')
+    {
+      var url='{{ route('listarPaises') }}';
+    }
     
     var opcionUrl;
-
     var htmlListar;
     $("#tableListar").html('');
     $.ajax({
@@ -149,15 +152,30 @@ function busquedaFunction(titulo,opcion) {
                  dataType: 'JSON',
                   success: function(respuesta) {
                     opcionUrl=respuesta.opcionUrl;
-                    $.each(respuesta.data,function(index,element)
-                        { 
-                           htmlListar=htmlListar + "<tr value='"+element.codigo+"'>"+ 
-                                                   "<td id='codigo'>"+element.codigo+" </td>"+
-                                                   "<td class='boton' style='cursor:pointer;'>"+element.descripcion+"</td>"+
-                                                "</tr>";
-                        });
+                    if(opcion=='1')
+                    {
+                        $.each(respuesta.data,function(index,element)
+                            { 
+                              htmlListar=htmlListar + "<tr value='"+element.codigo+"'>"+ 
+                                                      "<td id='codigo'>"+element.codigo+" </td>"+
+                                                      "<td class='boton' style='cursor:pointer;'>"+element.descripcion+"</td>"+
+                                                    "</tr>";
+                            });
 
-                        $("#tableListar").html(htmlListar);
+                            $("#tableListar").html(htmlListar);
+                    }
+                    if(opcion=='4')
+                    {
+                        $.each(respuesta.data,function(index,element)
+                            { 
+                              htmlListar=htmlListar + "<tr value='"+element.nombre+"'>"+ 
+                                                      "<td id='codigo'>"+element.id+" </td>"+
+                                                      "<td class='boton' style='cursor:pointer;'>"+element.nombre+"</td>"+
+                                                    "</tr>";
+                            });
+
+                            $("#tableListar").html(htmlListar);
+                    }
                       
                   }
               });
@@ -173,6 +191,11 @@ function busquedaFunction(titulo,opcion) {
                     if(opcion=='1')
                     {
                       $('#equipo_padre').val(trValue);
+                      $('#Busquedas').modal('hide');
+                    }
+                    if(opcion=='4')
+                    {
+                      $('#ubicacion').val(trValue);
                       $('#Busquedas').modal('hide');
                     }
                   

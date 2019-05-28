@@ -35,6 +35,13 @@ class PaisesController extends AppBaseController
             ->with('paises', $paises);
     }
 
+    public function listarPaises(Request $request)
+    {
+        $listar = $this->paisesRepository->all();
+        $opcon=4;
+        return response(['data' => $listar,'opcionUrl'=>$opcon]);
+    }
+ 
     /**
      * Show the form for creating a new Paises.
      *
