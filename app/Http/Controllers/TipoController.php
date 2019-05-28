@@ -35,9 +35,10 @@ class TipoController extends AppBaseController
             ->with('tipos', $tipos);
     }
 
-    public function listarTipo(Request $request)
+    public function listarTipos(Request $request)
     {
         $listar = $this->tipoRepository->all();
+
         $opcon=3;
         return response(['data' => $listar,'opcionUrl'=>$opcon]);
     }

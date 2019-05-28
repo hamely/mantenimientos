@@ -40,6 +40,16 @@ class MarcaController extends AppBaseController
      *
      * @return Response
      */
+
+    public function listarMarcas(Request $request)
+    {
+        $listar = $this->marcaRepository->all();
+
+        $opcon=2;
+        
+        return response(['data' => $listar,'opcionUrl'=>$opcon]);
+    }
+
     public function create()
     {
         return view('admin.marcas.create');

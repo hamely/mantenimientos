@@ -9,11 +9,11 @@
 		  <label class="control-label col-md-1 col-sm-1 col-xs-1" for="first-name"> 
 		  	Buscar Id 
 	      </label>
-        <button id="nuevo" name="nuevo" >hola</button>
+      
 		   <div class="col-md-3 col-sm-3 col-xs-6">
 		   
 		     <input type="text" class="form-control" placeholder="Buscar id">
-		
+		  <br>
 		  </div>
 	</div>
     </section>
@@ -130,20 +130,36 @@ function busquedaFunction(titulo,opcion) {
  	
     $('#busquedaTitulo').html(titulo);
 
+    var opcion;
+    var  trValue;
     if(opcion=='1')
     {
+      opcion=1;
       var url='{{ route('listarEquipoCategoria') }}';
+    }
+    if(opcion=='2')
+    {
+      opcion=2;
+      var url='{{ route('listarMarcas') }}';
     }
     if(opcion=='3')
     {
+      opcion=3;
       var url='{{ route('listarTipos') }}';
+     
     }
     if(opcion=='4')
     {
+      opcion=4;
       var url='{{ route('listarPaises') }}';
     }
+    if(opcion=='5')
+    {
+      opcion=5;
+      var url='{{ route('listarEmpresas') }}';
+    }
     
-    var opcionUrl;
+console.log(opcion);
     var htmlListar;
     $("#tableListar").html('');
     $.ajax({
@@ -155,58 +171,128 @@ function busquedaFunction(titulo,opcion) {
                     },
                  dataType: 'JSON',
                   success: function(respuesta) {
-                    opcionUrl=respuesta.opcionUrl;
-                    if(opcion=='1'|| opcion=='3' )
-                    {
-                        $.each(respuesta.data,function(index,element)
-                            { 
-                              htmlListar=htmlListar + "<tr value='"+element.codigo+"'>"+ 
-                                                      "<td id='codigo'>"+element.codigo+" </td>"+
-                                                      "<td class='boton' style='cursor:pointer;'>"+element.descripcion+"</td>"+
-                                                    "</tr>";
-                            });
+                 
 
-                            $("#tableListar").html(htmlListar);
-                    }
-                    if(opcion=='4')
-                    {
-                        $.each(respuesta.data,function(index,element)
-                            { 
-                              htmlListar=htmlListar + "<tr value='"+element.nombre+"'>"+ 
-                                                      "<td id='codigo'>"+element.id+" </td>"+
-                                                      "<td class='boton' style='cursor:pointer;'>"+element.nombre+"</td>"+
-                                                    "</tr>";
-                            });
+	                     if(opcion=='1')
+	                     {
+	 						
+	 						$.each(respuesta.data,function(index,element)
+	                            { 
+	                              htmlListar=htmlListar + "<tr value='"+element.codigo+"'>"+ 
+	                                                      "<td id='codigo'>"+element.codigo+" </td>"+
+	                                                      "<td class='boton' style='cursor:pointer;'>"+element.descripcion+"</td>"+
+	                                                    "</tr>";
+	                            });
 
-                            $("#tableListar").html(htmlListar);
+	                            $("#tableListar").html(htmlListar);
+	                      
+	                	 }
+
+	                	 if(opcion=='2')
+	                     {
+	 						
+	 						$.each(respuesta.data,function(index,element)
+	                            { 
+	                              htmlListar=htmlListar + "<tr value='"+element.codigo+"'>"+ 
+	                                                      "<td id='codigo'>"+element.codigo+" </td>"+
+	                                                      "<td class='boton' style='cursor:pointer;'>"+element.descripcion+"</td>"+
+	                                                    "</tr>";
+	                            });
+
+	                            $("#tableListar").html(htmlListar);
+	                      
+	                	 }
+
+						 if(opcion=='3')
+		                	 {
+		 						
+		 					
+		 						$.each(respuesta.data,function(index,element)
+		                            { 
+		                              htmlListar=htmlListar + "<tr value='"+element.codigo+"'>"+ 
+		                                                      "<td id='codigo'>"+element.codigo+" </td>"+
+		                                                      "<td class='boton' style='cursor:pointer;'>"+element.descripcion+"</td>"+
+		                                                    "</tr>";
+		                            });
+
+		                            $("#tableListar").html(htmlListar);
+		                      
+		                	 }
+
+		                    if(opcion=='4')
+		                    {
+		                        $.each(respuesta.data,function(index,element)
+		                            { 
+		                              htmlListar=htmlListar + "<tr value='"+element.nombre+"'>"+ 
+		                                                      "<td id='codigo'>"+element.id+" </td>"+
+		                                                      "<td class='boton' style='cursor:pointer;'>"+element.nombre+"</td>"+
+		                                                    "</tr>";
+		                            });
+
+		                            $("#tableListar").html(htmlListar);
+		                    }
+
+		                    if(opcion=='5')
+		                    {
+		                        $.each(respuesta.data,function(index,element)
+		                            { 
+		                              htmlListar=htmlListar + "<tr value='"+element.nombre+"'>"+ 
+		                                                      "<td id='codigo'>"+element.id+" </td>"+
+		                                                      "<td class='boton' style='cursor:pointer;'>"+element.nombre+"</td>"+
+		                                                    "</tr>";
+		                            });
+
+		                            $("#tableListar").html(htmlListar);
+		                    }
+
+
+
+	                	 $('#Busquedas').modal('show');
+
+
                     }
-                      
-                  }
               });
 
-             $('#Busquedas').modal('show');
+            
              
            
 
              $(".table").on('click','tr',function(e){
                     e.preventDefault();
-                    var  trValue= $(this).attr('value');
+                    trValue= $(this).attr('value');
                     
                     if(opcion=='1')
                     {
+                      opcion=0;
                       $('#equipo_padre').val(trValue);
-                      $('#Busquedas').modal('hide');
+              
+                    }
+                    if(opcion=='2')
+                    {
+                      opcion=0;
+                      $('#marca').val(trValue);
+              
                     }
                     if(opcion=='3')
                     {
+                      opcion=0;
                       $('#tipo').val(trValue);
-                      $('#Busquedas').modal('hide');
+                   
                     }
                     if(opcion=='4')
                     {
+                      opcion=0;
                       $('#ubicacion').val(trValue);
-                      $('#Busquedas').modal('hide');
+                    
                     }
+                    if(opcion=='5')
+                    {
+                      opcion=0;
+                      $('#empresa').val(trValue);
+                    
+                    }
+
+                      $('#Busquedas').modal('hide');
                   
                 }); 
       }
