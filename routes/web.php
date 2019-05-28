@@ -44,3 +44,9 @@ Route::resource('categorias', 'CategoriaController');
 Route::resource('equipoPrincipal', 'EquipoPrincipal');
 
 //Fin equipo proceso
+
+Route::resource('empresas', 'EmpresaController');
+
+Route::resource('logiProveedores', 'Logi_ProveedoresController');
+
+Route::resource('paises', 'PaisesController');
