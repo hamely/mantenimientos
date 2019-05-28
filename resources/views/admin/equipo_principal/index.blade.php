@@ -134,6 +134,10 @@ function busquedaFunction(titulo,opcion) {
     {
       var url='{{ route('listarEquipoCategoria') }}';
     }
+    if(opcion=='3')
+    {
+      var url='{{ route('listarTipos') }}';
+    }
     if(opcion=='4')
     {
       var url='{{ route('listarPaises') }}';
@@ -152,7 +156,7 @@ function busquedaFunction(titulo,opcion) {
                  dataType: 'JSON',
                   success: function(respuesta) {
                     opcionUrl=respuesta.opcionUrl;
-                    if(opcion=='1')
+                    if(opcion=='1'|| opcion=='3' )
                     {
                         $.each(respuesta.data,function(index,element)
                             { 
@@ -191,6 +195,11 @@ function busquedaFunction(titulo,opcion) {
                     if(opcion=='1')
                     {
                       $('#equipo_padre').val(trValue);
+                      $('#Busquedas').modal('hide');
+                    }
+                    if(opcion=='3')
+                    {
+                      $('#tipo').val(trValue);
                       $('#Busquedas').modal('hide');
                     }
                     if(opcion=='4')
