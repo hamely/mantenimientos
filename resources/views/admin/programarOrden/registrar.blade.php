@@ -92,10 +92,47 @@
                             </div>
                         </div>
                         <div role="tabpanel" class="tab-pane fade" id="tab_content8" aria-labelledby="profile-tab">
-                            <p> 3</p>
+                            <div class="form-group">
+                                <label class="control-label col-md-1 col-sm-1 col-xs-1" for="last-name">Medidor</label>
+                                <div class="col-md-3 col-sm-6 col-xs-12">
+                                    <input type="text" id="medidor" name="medidor" required="required" class="form-control col-md-7 col-xs-12">
+                                </div>
+                                <div class="col-md-3 col-sm-6 col-xs-12">
+                                    <button type="button" class="btn btn-info btn-xs" onclick="busquedaFunction('Medidor','1')"><span class="fa fa-search-plus"></span></button>
+                                </div>
+                            </div>
                         </div>
                         <div role="tabpanel" class="tab-pane fade" id="tab_content9" aria-labelledby="profile-tab">
-                            <p> 4</p>
+                            <div class="form-group">
+                                <label class="control-label col-md-1 col-sm-1 col-xs-1" for="last-name">Medidor</label>
+                                <div class="col-md-3 col-sm-6 col-xs-12">
+                                    <input type="text" id="medidor" name="medidor" required="required" class="form-control col-md-7 col-xs-12">
+                                </div>
+                                <div class="col-md-3 col-sm-6 col-xs-12">
+                                    <button type="button" class="btn btn-info btn-xs" onclick="busquedaFunction('Medidor','1')"><span class="fa fa-search-plus"></span></button>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="control-label col-md-1 col-sm-1 col-xs-1" for="last-name">Frecuencia</label>
+                                <div class="col-md-3 col-sm-6 col-xs-12">
+                                    <input type="text" id="frecuencia" name="frecuencia" required="required" class="form-control col-md-7 col-xs-12">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-1 col-sm-1 col-xs-1" for="last-name">Lectura</label>
+                                <div class="col-md-3 col-sm-6 col-xs-12">
+                                    <input type="text" id="lectura" name="lectura" required="required" class="form-control col-md-7 col-xs-12" placeholder="lectura de los ultimos dias">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-1 col-sm-1 col-xs-1" for="last-name">Última vez</label>
+                                <div class="col-md-3 col-sm-6 col-xs-12">
+                                    <input type="text" id="vez" name="vez" required="required" class="form-control col-md-7 col-xs-12">
+                                </div>
+                            </div>
+                            
+                           
                         </div>
                     </div>
         </div>
@@ -105,16 +142,27 @@
   </div>
 </div>
 <div class="form-group">    
-    <label class="control-label col-md-1 col-sm-1 col-xs-1" for="last-name">Incidencias de la pagina 
+    <label class="control-label col-md-1 col-sm-1 col-xs-1" for="last-name">Prioridad programada
     </label>
     <div class="col-md-3 col-sm-6 col-xs-12">
-        <input type="text" id="equipo_padre" name="equipo_padre" required="required" class="form-control col-md-7 col-xs-12">
+        <input type="number" id="prioridad" name="prioridad" required="required" class="form-control col-md-7 col-xs-12">
     </div>
+    
+</div>
+<div class="form-group">    
+    <label class="control-label col-md-1 col-sm-1 col-xs-1" for="last-name">TM Estimado
+    </label>
     <div class="col-md-3 col-sm-6 col-xs-12">
-        <button type="button" class="btn btn-info btn-xs" onclick="busquedaFunction('Incidencias ','1')"><span class="fa fa-search-plus"></span></button>
+        <input type="text" id="tm" name="tm" required="required" class="form-control col-md-7 col-xs-12">
     </div>
 </div>
-
+<div class="form-group">    
+    <label class="control-label col-md-1 col-sm-1 col-xs-1" for="last-name">Dias estimados para terminar
+    </label>
+    <div class="col-md-3 col-sm-6 col-xs-12">
+        <input type="text" id="dias_estimados" name="dias_estimados" required="required" class="form-control col-md-7 col-xs-12">
+    </div>
+</div>
 <div class="form-group">
     <label class="control-label col-md-1 col-sm-1 col-xs-1">Tienda
     </label>
