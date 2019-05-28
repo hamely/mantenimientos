@@ -61,6 +61,10 @@
                       <li><a href="{{URL::route('ubicacions.index') }}">Ubicacion</a></li>
                       <li><a href="{{URL::route('tipoInformes.index') }}">Tipo de informe</a></li>
                       <li><a href="{{URL::route('categorias.index') }}">Categoria</a></li>
+                      <li><a href="{{URL::route('empresas.index') }}">Empresa</a></li>
+                      <li><a href="{{URL::route('logiProveedores.index') }}">Proveedores</a></li>
+                      <li><a href="{{URL::route('paises.index') }}">Paises</a></li>
+                      
                     </ul>
                   </li>
 
