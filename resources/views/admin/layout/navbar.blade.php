@@ -77,6 +77,7 @@
                       <li><a href="{{URL::route('frecuencias.index') }}">Frecuencia</a></li>
                       <li><a href="{{URL::route('tipos.index') }}">Tipo</a></li>
                       <li><a href="{{URL::route('tipoIncidencias.index') }}">Tipo incidencias</a></li>
+                      <li><a href="{{URL::route('medidors.index') }}">Medidores</a></li>
                     </ul>
                   </li>
 

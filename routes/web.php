@@ -74,3 +74,5 @@ Route::resource('tipos', 'TipoController');
 
 
 Route::resource('tipoIncidencias', 'TipoIncidenciaController');
+
+Route::resource('medidors', 'MedidorController');
