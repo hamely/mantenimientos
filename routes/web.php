@@ -50,4 +50,9 @@ Route::resource('empresas', 'EmpresaController');
 Route::resource('logiProveedores', 'Logi_ProveedoresController');
 
 Route::resource('paises', 'PaisesController');
+
 Route::post('listarPaises/', [ 'uses' => 'PaisesController@listarPaises' ])->name('listarPaises');
+Route::resource('frecuencias', 'FrecuenciaController');
+
+Route::resource('tipos', 'TipoController');
+Route::post('listarTipos/', [ 'uses' => 'TipoController@listarTipos' ])->name('listarTipos');
