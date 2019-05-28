@@ -35,8 +35,21 @@
         <div class="col-md-3 col-sm-6 col-xs-12">
         	<button type="button" class="btn btn-info btn-xs" onclick="busquedaFunction('Equipo padre ','1')"><span class="fa fa-search-plus"></span></button>
         </div>
+
+        
     </div>
-  
+
+  	<div class="form-group">
+        <label class="control-label col-md-1 col-sm-1 col-xs-1">Marca
+        </label>
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <input id="marca" name="marca" class="date-picker form-control col-md-7 col-xs-12" required="required" type="text">
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-12">
+        	<button type="button" class="btn btn-info btn-xs" onclick="busquedaFunction('Marca','2')"><span class="fa fa-search-plus"></span></button>
+        </div>
+    </div>
+
     <div class="form-group">
         <label class="control-label col-md-1 col-sm-1 col-xs-1">Descripción
         </label>
@@ -55,6 +68,7 @@
         	<button type="button" class="btn btn-info btn-xs" onclick="busquedaFunction('Tipo','3')"><span class="fa fa-search-plus"></span></button>
         </div>
     </div>
+     
    <div class="form-group">
         <label class="control-label col-md-1 col-sm-1 col-xs-1">Ubicación 
         </label>
@@ -64,6 +78,20 @@
 
 		<div class="col-md-3 col-sm-6 col-xs-12">
         	<button type="button" class="btn btn-info btn-xs" onclick="busquedaFunction('Ubicación','4')"><span class="fa fa-search-plus"></span></button>
+        </div>
+
+    </div>
+
+    <div class="form-group">
+
+        <label class="control-label col-md-1 col-sm-1 col-xs-1">Empresa
+        </label>
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <input id="empresa" name="empresa" class="date-picker form-control col-md-7 col-xs-12" required="required" type="text">
+        </div>
+
+		<div class="col-md-3 col-sm-6 col-xs-12">
+        	<button type="button" class="btn btn-info btn-xs" onclick="busquedaFunction('Empresa','5')"><span class="fa fa-search-plus"></span></button>
         </div>
 
     </div>
@@ -97,7 +125,7 @@
             <input id="pieza" class="date-picker form-control col-md-7 col-xs-12" required="required" type="text">
         </div>
          <div class="col-md-3 col-sm-6 col-xs-12">
-        	<button type="button" class="btn btn-info btn-xs" onclick="busquedaFunction('Piezas','5')"><span class="fa fa-search-plus"></span></button>
+        	<button type="button" class="btn btn-info btn-xs" onclick="busquedaFunction('Piezas','6')"><span class="fa fa-search-plus"></span></button>
         </div>
     </div>
     <div class="form-group">
@@ -107,7 +135,7 @@
             <input id="m_obra" name="m_obra" class="date-picker form-control col-md-7 col-xs-12" required="required" type="text">
         </div>
         <div class="col-md-3 col-sm-6 col-xs-12">
-        	<button type="button" class="btn btn-info btn-xs" onclick="busquedaFunction('M. Obra ','6')"><span class="fa fa-search-plus"></span></button>
+        	<button type="button" class="btn btn-info btn-xs" onclick="busquedaFunction('M. Obra ','7')"><span class="fa fa-search-plus"></span></button>
         </div>
     </div>
 	<div class="form-group">
@@ -117,7 +145,7 @@
             <input id="costo_mis" name="costo_mis" class="date-picker form-control col-md-7 col-xs-12" required="required" type="text">
         </div>
         <div class="col-md-3 col-sm-6 col-xs-12">
-        	<button type="button" class="btn btn-info btn-xs" onclick="busquedaFunction('Costo Misc.','7')"><span class="fa fa-search-plus"></span></button>
+        	<button type="button" class="btn btn-info btn-xs" onclick="busquedaFunction('Costo Misc.','8')"><span class="fa fa-search-plus"></span></button>
         </div>
     </div>
 

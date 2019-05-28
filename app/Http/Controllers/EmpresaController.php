@@ -35,6 +35,16 @@ class EmpresaController extends AppBaseController
             ->with('empresas', $empresas);
     }
 
+
+    public function listarEmpresas(Request $request)
+    {
+        $listar = $this->empresaRepository->all();
+
+        $opcon=5;
+        
+        return response(['data' => $listar,'opcionUrl'=>$opcon]);
+    }
+
     /**
      * Show the form for creating a new Empresa.
      *

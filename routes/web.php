@@ -31,7 +31,10 @@ Route::resource('usuarios', 'UsuarioController');
 Route::resource('tipoMantenimientos', 'tipo_mantenimientoController');
 Route::resource('areas', 'AreaController');
 Route::resource('equipos', 'EquipoController');
+
+Route::post('listarMarcas/', [ 'uses' => 'MarcaController@listarMarcas' ])->name('listarMarcas');
 Route::resource('marcas', 'MarcaController');
+
 Route::resource('unidadMedidas', 'Unidad_medidaController');
 
 Route::resource('tipoEquipos', 'Tipo_equipoController');
@@ -45,6 +48,7 @@ Route::resource('equipoPrincipal', 'EquipoPrincipal');
 
 //Fin equipo proceso
 
+Route::post('listarEmpresas/', [ 'uses' => 'EmpresaController@listarEmpresas' ])->name('listarEmpresas');
 Route::resource('empresas', 'EmpresaController');
 
 Route::resource('logiProveedores', 'Logi_ProveedoresController');
@@ -54,5 +58,5 @@ Route::resource('paises', 'PaisesController');
 Route::post('listarPaises/', [ 'uses' => 'PaisesController@listarPaises' ])->name('listarPaises');
 Route::resource('frecuencias', 'FrecuenciaController');
 
-Route::resource('tipos', 'TipoController');
 Route::post('listarTipos/', [ 'uses' => 'TipoController@listarTipos' ])->name('listarTipos');
+Route::resource('tipos', 'TipoController');
