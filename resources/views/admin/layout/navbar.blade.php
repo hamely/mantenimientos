@@ -43,13 +43,23 @@
                     </ul>
                   </li>
 
+                  <li><a><i class="fa fa-home"></i> INCIDENCIAS <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="{{ url('incidencias') }}">Ticket de atención</a></li>
+                      <li><a href="">Orden de servicio</a></li>
+                      <li><a href="">Programar O.S</a></li>
+                      <li><a href="">Informe técnico</a></li>
+                    </ul>
+                  </li>
+              
+
                   <li><a><i class="fa fa-home"></i> USUARIOS <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="{{URL::route('usuarios.index') }}">inicio</a></li>
                     </ul>
                   </li>
                   
-                  <li><a><i class="fa fa-home"></i> MANTENIMiENTOS <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-home"></i> MANTENIMIENTOS <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="{{URL::route('tipoMantenimientos.index') }}">Tipo mantenimiento</a></li>
 
