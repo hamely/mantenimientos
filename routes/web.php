@@ -52,3 +52,5 @@ Route::resource('logiProveedores', 'Logi_ProveedoresController');
 Route::resource('paises', 'PaisesController');
 
 Route::resource('frecuencias', 'FrecuenciaController');
+
+Route::resource('tipos', 'TipoController');

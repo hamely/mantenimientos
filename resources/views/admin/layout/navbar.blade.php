@@ -65,7 +65,7 @@
                       <li><a href="{{URL::route('logiProveedores.index') }}">Proveedores</a></li>
                       <li><a href="{{URL::route('paises.index') }}">Paises</a></li>
                       <li><a href="{{URL::route('frecuencias.index') }}">Frecuencia</a></li>
-                      
+                      <li><a href="{{URL::route('tipos.index') }}">Tipo</a></li>
                     </ul>
                   </li>
 
