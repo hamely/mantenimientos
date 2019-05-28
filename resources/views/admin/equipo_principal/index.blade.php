@@ -9,11 +9,11 @@
 		  <label class="control-label col-md-1 col-sm-1 col-xs-1" for="first-name"> 
 		  	Buscar Id 
 	      </label>
-        <button id="nuevo" name="nuevo" >hola</button>
+      
 		   <div class="col-md-3 col-sm-3 col-xs-6">
 		   
 		     <input type="text" class="form-control" placeholder="Buscar id">
-		
+		  <br>
 		  </div>
 	</div>
     </section>
