@@ -35,6 +35,12 @@ class Tipo_equipoController extends AppBaseController
             ->with('tipoEquipos', $tipoEquipos);
     }
 
+    public function listarEquipoCategoria()
+    {
+        $tipoEquipos = $this->tipoEquipoRepository->all();
+        $opcon=1;
+        return response(['data' => $tipoEquipos,'opcionUrl'=>$opcon]);
+    }
     /**
      * Show the form for creating a new Tipo_equipo.
      *

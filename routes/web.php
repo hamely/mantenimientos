@@ -33,7 +33,10 @@ Route::resource('areas', 'AreaController');
 Route::resource('equipos', 'EquipoController');
 Route::resource('marcas', 'MarcaController');
 Route::resource('unidadMedidas', 'Unidad_medidaController');
+
 Route::resource('tipoEquipos', 'Tipo_equipoController');
+Route::post('listarEquipoCategoria/', [ 'uses' => 'Tipo_equipoController@listarEquipoCategoria' ])->name('listarEquipoCategoria');
+
 Route::resource('ubicacions', 'UbicacionController');
 Route::resource('tipoInformes', 'Tipo_informeController');
 Route::resource('categorias', 'CategoriaController');

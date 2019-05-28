@@ -9,6 +9,7 @@
 		  <label class="control-label col-md-1 col-sm-1 col-xs-1" for="first-name"> 
 		  	Buscar Id 
 	      </label>
+        <button id="nuevo" name="nuevo" >hola</button>
 		   <div class="col-md-3 col-sm-3 col-xs-6">
 		   
 		     <input type="text" class="form-control" placeholder="Buscar id">
@@ -80,8 +81,6 @@
                 </div>
               </div>
 
-
-
             </div>
           </div>
         </div>
@@ -90,16 +89,28 @@
 
 
 <div class="modal fade" id="Busquedas" role="dialog">
-    <div class="modal-dialog modal-sm">
+    <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title" id="busquedaTitulo" name="busquedaTitulo">Busqueda</h4>
         </div>
         <div class="modal-body">
-         
+       
+                    <table id="inicioDatable" class="table table-striped table-bordered table-condensed" cellspacing="0" width="100%">
+                      <thead>
+                        <tr>
+                          <th>Codigo</th>
+                          <th>Descripcion</th> 
+                        </tr>
+                      </thead>
+                      <tbody id="tableListar" name="tableListar">
+                       
+                        
+                      </tbody>
+                    </table>
+                  </div>
 
-        </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
@@ -110,27 +121,68 @@
 @section('script')
 
 
-{{--   <script>
-	$(document).ready(function(){
-	  	
-	  function busquedaModalEquipo(textoTitulo)
-	  {
-	
-	  	 $('#busqueda').append(textoTitulo);
-	  	 $('#Busquedas').modal('show');
 
-	  }
-	 
-
-	});
-</script> --}}
-
+  
 <script>
-function busquedaFunction(titulo) {
+
+
+function busquedaFunction(titulo,opcion) {
  	
- 	 $('#busquedaTitulo').html(titulo);
-	 $('#Busquedas').modal('show');
-}
+    $('#busquedaTitulo').html(titulo);
+
+    if(opcion=='1')
+    {
+      var url='{{ route('listarEquipoCategoria') }}';
+    }
+    
+    var opcionUrl;
+
+    var htmlListar;
+    $("#tableListar").html('');
+    $.ajax({
+                 url:url,
+                 type: 'POST',
+                 data:{
+                        "_token": "{{ csrf_token() }}",
+                         "abbr":opcion,
+                    },
+                 dataType: 'JSON',
+                  success: function(respuesta) {
+                    opcionUrl=respuesta.opcionUrl;
+                    $.each(respuesta.data,function(index,element)
+                        { 
+                           htmlListar=htmlListar + "<tr value='"+element.codigo+"'>"+ 
+                                                   "<td id='codigo'>"+element.codigo+" </td>"+
+                                                   "<td class='boton' style='cursor:pointer;'>"+element.descripcion+"</td>"+
+                                                "</tr>";
+                        });
+
+                        $("#tableListar").html(htmlListar);
+                      
+                  }
+              });
+
+             $('#Busquedas').modal('show');
+             
+           
+
+             $(".table").on('click','tr',function(e){
+                    e.preventDefault();
+                    var  trValue= $(this).attr('value');
+                    
+                    if(opcion=='1')
+                    {
+                      $('#equipo_padre').val(trValue);
+                      $('#Busquedas').modal('hide');
+                    }
+                  
+                }); 
+      }
+   
+               
+
+       
+     
 </script>
 
 @endsection
