@@ -67,6 +67,7 @@ Route::post('listarTipos/', [ 'uses' => 'TipoController@listarTipos' ])->name('l
 //PROCESO DE INCIDENCIAS
 Route::resource('incidencias', 'IncidenciasController');
 Route::resource('ordenServicio','OrdenServicioController');
+Route::resource('programarOrdenServicio','ProgramacionOrdenController');
 //FIN
 
 Route::resource('tipos', 'TipoController');
