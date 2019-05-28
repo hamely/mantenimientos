@@ -46,7 +46,7 @@
                   <li><a><i class="fa fa-home"></i> INCIDENCIAS <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="{{ url('incidencias') }}">Ticket de atención</a></li>
-                      <li><a href="">Orden de servicio</a></li>
+                      <li><a href="{{ url('ordenServicio') }}">Orden de servicio</a></li>
                       <li><a href="">Programar O.S</a></li>
                       <li><a href="">Informe técnico</a></li>
                     </ul>
@@ -76,6 +76,7 @@
                       <li><a href="{{URL::route('paises.index') }}">Paises</a></li>
                       <li><a href="{{URL::route('frecuencias.index') }}">Frecuencia</a></li>
                       <li><a href="{{URL::route('tipos.index') }}">Tipo</a></li>
+                      <li><a href="{{URL::route('tipoIncidencias.index') }}">Tipo incidencias</a></li>
                     </ul>
                   </li>
 
