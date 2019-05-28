@@ -300,7 +300,8 @@ $(function()
      
       $( "#create_equipo" ).click(function(e)
        {
-			   
+			  
+
 			   e.preventDefault(); 
 			    $.ajax({                        
 			           url:'{{ route('CrearEquipoPrincipal') }}',
@@ -308,7 +309,8 @@ $(function()
 			           data: $("#form_equipo").serialize(), 
 			           success: function(data)             
 			           {
-			             	console.log(data);   
+			             		   $("#form_equipo")[0].reset();
+
 			           }
        });
 

@@ -23,7 +23,7 @@
     <link href="{{ URL::asset('admin/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{ URL::asset('admin/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{ URL::asset('admin/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css')}}" rel="stylesheet">
-
+    <link href="{{ URL::asset('admin/build/css/toastr.min.css')}}" rel="stylesheet">
     <link href="{{ URL::asset('admin/build/css/custom.min.css')}}" rel="stylesheet">
 
 </head>
@@ -48,6 +48,7 @@
     </div>
   <!-- jQuery -->
     <script src="{{ URL::asset('admin/vendors/jquery/dist/jquery.min.js')}}"></script>
+    
     <!-- Bootstrap -->
     <script src="{{ URL::asset('admin/vendors/bootstrap/dist/js/bootstrap.min.js')}}"></script>
     <!-- FastClick -->
@@ -73,6 +74,7 @@
     <script src="{{ URL::asset('admin/vendors/pdfmake/build/pdfmake.min.js')}}"></script>
     <script src="{{ URL::asset('admin/vendors/pdfmake/build/vfs_fonts.js')}}"></script>
 
+ 
     <!-- Custom Theme Scripts -->
     <script src="{{ URL::asset('admin/build/js/custom.min.js')}}"></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
