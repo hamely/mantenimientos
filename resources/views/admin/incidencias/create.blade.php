@@ -131,16 +131,19 @@ function busquedaFunction(titulo,opcion) {
 
     if(opcion=='1')
     {
-      var url='{{ route('listarEquipoCategoria') }}';
+      var url='{{ route('listarIncidencias') }}';
     }
+
+    if(opcion=='2')
+    {
+      var url='{{ route('listarEquipos') }}';
+    }
+
     if(opcion=='3')
     {
-      var url='{{ route('listarTipos') }}';
+      var url='{{ route('listarEmpresas') }}';
     }
-    if(opcion=='4')
-    {
-      var url='{{ route('listarPaises') }}';
-    }
+    
     
     var opcionUrl;
     var htmlListar;
@@ -153,34 +156,50 @@ function busquedaFunction(titulo,opcion) {
                          "abbr":opcion,
                     },
                  dataType: 'JSON',
-                  success: function(respuesta) {
-                    opcionUrl=respuesta.opcionUrl;
-                    if(opcion=='1'|| opcion=='3' )
+                 success: function(respuesta) {
+                 
+                    if(opcion=='1' )
                     {
                         $.each(respuesta.data,function(index,element)
                             { 
-                              htmlListar=htmlListar + "<tr value='"+element.codigo+"'>"+ 
+                              htmlListar=htmlListar + "<tr value='"+element.id+"'>"+ 
                                                       "<td id='codigo'>"+element.codigo+" </td>"+
+                                                      "<td class='boton' style='cursor:pointer;'>"+element.description+"</td>"+
+                                                    "</tr>";
+                            });
+
+                            $("#tableListar").html(htmlListar);
+                    }
+                    if(opcion=='2' )
+                    {
+                        $.each(respuesta.data,function(index,element)
+                            { 
+                              htmlListar=htmlListar + "<tr value='"+element.id+"'>"+ 
+                                                      "<td id='codigo'>"+element.idequipo+" </td>"+
                                                       "<td class='boton' style='cursor:pointer;'>"+element.descripcion+"</td>"+
                                                     "</tr>";
                             });
 
                             $("#tableListar").html(htmlListar);
                     }
-                    if(opcion=='4')
+
+                     if(opcion=='3' )
                     {
+                        console.log(respuesta);
                         $.each(respuesta.data,function(index,element)
                             { 
-                              htmlListar=htmlListar + "<tr value='"+element.nombre+"'>"+ 
-                                                      "<td id='codigo'>"+element.id+" </td>"+
-                                                      "<td class='boton' style='cursor:pointer;'>"+element.nombre+"</td>"+
+                              htmlListar=htmlListar + "<tr value='"+element.id+"'>"+ 
+                                                      "<td id='codigo'>"+element.nombre+" </td>"+
+                                                      "<td class='boton' style='cursor:pointer;'>"+element.descripcion+"</td>"+
                                                     "</tr>";
                             });
 
                             $("#tableListar").html(htmlListar);
                     }
+                    
                       
                   }
+
               });
 
              $('#Busquedas').modal('show');
@@ -190,28 +209,62 @@ function busquedaFunction(titulo,opcion) {
              $(".table").on('click','tr',function(e){
                     e.preventDefault();
                     var  trValue= $(this).attr('value');
-                    
+                    var name= $(this).find("td:last-child").text();
+             
                     if(opcion=='1')
                     {
-                      $('#equipo_padre').val(trValue);
+                      opcion=0;
+                      $('#equipo_incidencia').val(name);
+                      $('#id_incidencia').val(trValue);
+                      $('#Busquedas').modal('hide');
+                    }
+                     if(opcion=='2')
+                    {
+                      opcion=0;
+                      $('#equipo_padre').val(name);
+                      $('#id_equipo').val(trValue);
                       $('#Busquedas').modal('hide');
                     }
                     if(opcion=='3')
                     {
-                      $('#tipo').val(trValue);
+                      opcion=0;
+                      $('#tienda').val(name);
+                      $('#id_tienda').val(trValue);
                       $('#Busquedas').modal('hide');
                     }
-                    if(opcion=='4')
-                    {
-                      $('#ubicacion').val(trValue);
-                      $('#Busquedas').modal('hide');
-                    }
+                  
                   
                 }); 
       }
    
                
+    $(function() 
+    {
 
+         
+          $( "#create_incidencia" ).click(function(e)
+           {
+                  
+
+                   e.preventDefault(); 
+                    $.ajax({                        
+                           url:'{{ route('crearIncidencia_equipo') }}',
+                           type: 'POST',           
+                           data: $("#incidencia_equipo").serialize(), 
+                           success: function(data)             
+                           {
+                              
+                              $("#incidencia_equipo")[0].reset();
+                              alert("se inserto la incidencia");
+
+                           }
+                     });
+
+                          
+            });
+       
+            
+    });  
        
      
 </script>

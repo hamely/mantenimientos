@@ -17,6 +17,7 @@ class CreateTipoIncidenciasTable extends Migration
             $table->increments('id');
             $table->string('codigo');
             $table->string('description');
+            $table->string('prioridad');
             $table->timestamps();
             $table->softDeletes();
         });
