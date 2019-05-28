@@ -5,6 +5,7 @@
 
  <div class="right_col" role="main">
  <section class="content-header">
+
 	<div class="form-group">
 		  <label class="control-label col-md-1 col-sm-1 col-xs-1" for="first-name"> 
 		  	Buscar Id 
@@ -17,7 +18,7 @@
 		  </div>
 	</div>
     </section>
-
+		
           <div class="">
  					
             <div class="row">
@@ -41,6 +42,7 @@
                       </li>
                     </ul>
                     <div class="clearfix"></div>
+
                     Equipos 
                    
                   </div>
@@ -63,7 +65,7 @@
                     </ul>
                     <div id="myTabContent" class="tab-content">
                         <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
-
+							
  					 		@include('admin.equipo_principal.registrar')
 		                      
                         </div>
@@ -159,7 +161,6 @@ function busquedaFunction(titulo,opcion) {
       var url='{{ route('listarEmpresas') }}';
     }
     
-console.log(opcion);
     var htmlListar;
     $("#tableListar").html('');
     $.ajax({
@@ -253,9 +254,6 @@ console.log(opcion);
                     }
               });
 
-            
-             
-           
 
              $(".table").on('click','tr',function(e){
                     e.preventDefault();
@@ -296,8 +294,29 @@ console.log(opcion);
                   
                 }); 
       }
+$(function() 
+{
+
+     
+      $( "#create_equipo" ).click(function(e)
+       {
+			   
+			   e.preventDefault(); 
+			    $.ajax({                        
+			           url:'{{ route('CrearEquipoPrincipal') }}',
+		               type: 'POST',           
+			           data: $("#form_equipo").serialize(), 
+			           success: function(data)             
+			           {
+			             	console.log(data);   
+			           }
+       });
+
+					  
+		});
    
-               
+        
+});       
 
        
      

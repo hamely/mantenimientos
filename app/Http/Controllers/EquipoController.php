@@ -35,6 +35,18 @@ class EquipoController extends AppBaseController
             ->with('equipos', $equipos);
     }
 
+
+  public function CrearEquipoPrincipal(Request $request)
+    {
+
+       $input = $request->all();
+
+        $equipo = $this->equipoRepository->create($input);
+
+        Flash::success('Equipo saved successfully.');
+
+        return $request->all();
+    }
     /**
      * Show the form for creating a new Equipo.
      *
