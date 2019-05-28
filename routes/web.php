@@ -56,3 +56,8 @@ Route::resource('frecuencias', 'FrecuenciaController');
 
 Route::resource('tipos', 'TipoController');
 Route::post('listarTipos/', [ 'uses' => 'TipoController@listarTipos' ])->name('listarTipos');
+
+
+//PROCESO DE INCIDENCIAS
+Route::resource('incidencias', 'IncidenciasController');
+//FIN
