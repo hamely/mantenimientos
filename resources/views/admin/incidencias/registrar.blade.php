@@ -62,27 +62,14 @@
 </div>
 
 <div class="form-group">
-    <label class="control-label col-md-1 col-sm-1 col-xs-1">Tipo
+    <label class="control-label col-md-1 col-sm-1 col-xs-1">Fecha
     </label>
     <div class="col-md-3 col-sm-6 col-xs-12">
-        <input id="tipo" name="tipo" class="date-picker form-control col-md-7 col-xs-12" required="required" type="text">
+        <input id="fecha" name="fecha" class="date-picker form-control col-md-7 col-xs-12" required="required" type="date">
     </div>
-    <div class="col-md-3 col-sm-6 col-xs-12">
-        <button type="button" class="btn btn-info btn-xs" onclick="busquedaFunction('Tipo','3')"><span class="fa fa-search-plus"></span></button>
-    </div>
+    
 </div>
-<div class="form-group">
-    <label class="control-label col-md-1 col-sm-1 col-xs-1">Ubicación 
-    </label>
-    <div class="col-md-3 col-sm-6 col-xs-12">
-        <input id="ubicacion" name="ubicacion" class="date-picker form-control col-md-7 col-xs-12" required="required" type="text">
-    </div>
 
-    <div class="col-md-3 col-sm-6 col-xs-12">
-        <button type="button" class="btn btn-info btn-xs" onclick="busquedaFunction('Ubicación','4')"><span class="fa fa-search-plus"></span></button>
-    </div>
-
-</div>
 
 <div class="form-group">
 <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
