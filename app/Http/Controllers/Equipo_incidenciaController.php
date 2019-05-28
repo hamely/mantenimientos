@@ -1,10 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use DB;
 use Illuminate\Http\Request;
 
-class IncidenciasController extends Controller
+class Equipo_incidenciaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +13,7 @@ class IncidenciasController extends Controller
      */
     public function index()
     {
-        return view('admin.incidencias.index');
+        //
     }
 
     /**
@@ -21,12 +21,27 @@ class IncidenciasController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-
-    
-     
-     public function create()
+    public function create()
     {
-        return view('admin.incidencias.create');
+        //
+    }
+
+    public function crearIncidencia(Request $request)
+    {
+
+
+        DB::table('equipo_incidencia')->insert(
+                [
+
+                'codigo' => $request->codigo, 
+                'id_equipo' => $request->id_equipo,
+                'id_incidencia' =>$request->id_incidencia,
+                'id_empresa' => $request->id_tienda,
+                'descripcion' => $request->descripcion,
+                'fecha_incidencia' => $request->fecha,
+                'prioridad' => '1',
+                ]
+            );
     }
 
     /**

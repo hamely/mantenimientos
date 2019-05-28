@@ -47,6 +47,13 @@ class EquipoController extends AppBaseController
 
         return $request->all();
     }
+
+     public function listarEquipos(Request $request)
+     {
+        $listar = $this->equipoRepository->all();
+        $opcon=2;
+        return response(['data' => $listar,'opcionUrl'=>$opcon]);
+     }
     /**
      * Show the form for creating a new Equipo.
      *

@@ -35,6 +35,12 @@ class TipoIncidenciaController extends AppBaseController
             ->with('tipoIncidencias', $tipoIncidencias);
     }
 
+    public function listarIncidencias(Request $request)
+     {
+        $listar = $this->tipoIncidenciaRepository->all();
+        $opcon=1;
+        return response(['data' => $listar,'opcionUrl'=>$opcon]);
+     }
     /**
      * Show the form for creating a new TipoIncidencia.
      *

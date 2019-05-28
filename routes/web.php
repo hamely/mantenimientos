@@ -32,6 +32,7 @@ Route::resource('tipoMantenimientos', 'tipo_mantenimientoController');
 Route::resource('areas', 'AreaController');
 
 Route::post('CrearEquipoPrincipal/', [ 'uses' => 'EquipoController@CrearEquipoPrincipal' ])->name('CrearEquipoPrincipal');
+Route::post('listarEquipos/', [ 'uses' => 'EquipoController@listarEquipos' ])->name('listarEquipos');
 Route::resource('equipos', 'EquipoController');
 
 Route::post('listarMarcas/', [ 'uses' => 'MarcaController@listarMarcas' ])->name('listarMarcas');
@@ -65,14 +66,24 @@ Route::post('listarTipos/', [ 'uses' => 'TipoController@listarTipos' ])->name('l
 
 
 //PROCESO DE INCIDENCIAS
+
 Route::resource('incidencias', 'IncidenciasController');
+
 Route::resource('ordenServicio','OrdenServicioController');
 Route::resource('programarOrdenServicio','ProgramacionOrdenController');
 //FIN
 
 Route::resource('tipos', 'TipoController');
 
+Route::post('listarIncidencias/', [ 'uses' => 'TipoIncidenciaController@listarIncidencias' ])->name('listarIncidencias');
+Route::resource('tipoIncidencias', 'TipoIncidenciaController');
+
+Route::post('crearIncidencia/', [ 'uses' => 'Equipo_incidenciaController@crearIncidencia' ])->name('crearIncidencia_equipo');
+Route::resource('equipo_incidenciaController', 'Equipo_incidenciaController');
+
+
 
 Route::resource('tipoIncidencias', 'TipoIncidenciaController');
 
 Route::resource('medidors', 'MedidorController');
+

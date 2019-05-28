@@ -305,14 +305,15 @@ $(function()
 			   e.preventDefault(); 
 			    $.ajax({                        
 			           url:'{{ route('CrearEquipoPrincipal') }}',
-		               type: 'POST',           
+		             type: 'POST',           
 			           data: $("#form_equipo").serialize(), 
 			           success: function(data)             
 			           {
-			             		   $("#form_equipo")[0].reset();
+			              
+			              $("#form_equipo")[0].reset();
 
 			           }
-       });
+      			 });
 
 					  
 		});
