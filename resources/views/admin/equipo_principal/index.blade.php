@@ -297,27 +297,64 @@ function busquedaFunction(titulo,opcion) {
 $(function() 
 {
 
-     
-      $( "#create_equipo" ).click(function(e)
-       {
-			  
+  
+     $('#form_equipo').bootstrapValidator({
+            container: '#messages',
+            feedbackIcons: {
+                valid: 'glyphicon glyphicon-ok',
+                invalid: 'glyphicon glyphicon-remove',
+                validating: 'glyphicon glyphicon-refresh'
+            },
+             submitHandler: function(validator, form, submitButton) {
 
-			   e.preventDefault(); 
-			    $.ajax({                        
-			           url:'{{ route('CrearEquipoPrincipal') }}',
-		             type: 'POST',           
-			           data: $("#form_equipo").serialize(), 
-			           success: function(data)             
-			           {
-			              
-			              $("#form_equipo")[0].reset();
+                 
+                     $.ajax({                        
+                            url:'{{ route('CrearEquipoPrincipal') }}',
+                             type: 'POST',           
+                            data: $("#form_equipo").serialize(), 
+                            success: function(data)             
+                            {
+                                   Swal.fire({
+                                position: 'top-end',
+                                type: 'success',
+                                title: 'Se registro correctamente',
+                                showConfirmButton: false,
+                                timer: 1500
+                                 })
+                              
 
-			           }
-      			 });
+                            }
+                  });
+            },
+            fields: {
+                codigo: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Requiere codigo'
+                        },
 
-					  
-		});
-   
+                       regexp: {
+               
+                         regexp: /^[0-9]+$/,
+               
+                         message: 'Solo se puede ingresar número'
+               
+                       }
+                    }
+                },
+             
+            }
+
+
+        })
+
+      
+
+      
+      $("#limpiarCaja" ).click(function() {
+          // $("#form_equipo")[0].reset();
+           location.reload();
+        });
         
 });       
 

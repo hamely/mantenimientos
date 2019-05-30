@@ -23,9 +23,9 @@
     <link href="{{ URL::asset('admin/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{ URL::asset('admin/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{ URL::asset('admin/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css')}}" rel="stylesheet">
-    <link href="{{ URL::asset('admin/build/css/toastr.min.css')}}" rel="stylesheet">
+    <link href="{{ URL::asset('admin/build/css/sweetalert2.min.css')}}" rel="stylesheet">
     <link href="{{ URL::asset('admin/build/css/custom.min.css')}}" rel="stylesheet">
-
+    <link href="//cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.0/css/bootstrapValidator.min.css" rel="stylesheet" />
 </head>
 
 
@@ -77,6 +77,8 @@
  
     <!-- Custom Theme Scripts -->
     <script src="{{ URL::asset('admin/build/js/custom.min.js')}}"></script>
+    <script src="{{ URL::asset('admin/build/js/sweetalert2.min.js')}}"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.4.5/js/bootstrapvalidator.min.js"></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
 
   @yield('script')
