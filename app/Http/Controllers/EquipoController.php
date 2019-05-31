@@ -9,7 +9,7 @@ use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
 use Response;
-
+use DB;
 class EquipoController extends AppBaseController
 {
     /** @var  EquipoRepository */
@@ -39,14 +39,75 @@ class EquipoController extends AppBaseController
   public function CrearEquipoPrincipal(Request $request)
     {
 
-       $input = $request->all();
+        $input = $request->all();
+        // dd($request->all());
+        // $equipo = $this->equipoRepository->create($input);
 
-        $equipo = $this->equipoRepository->create($input);
+        // Flash::success('Equipo saved successfully.');
+        DB::table('equipo')->insert([
+            'idequipo' => $request->codigo,
+            'descripcion' => $request->descripcion,
+            'id_marca' => $request->id_marca,
+            'id_pais' => $request->id_ubicacion,
+            'peso' => $request->peso,
+            'modelo' => $request->modelo,
+            'peso_envio' => $request->peso_envio,
+            'estado_cliente' =>'1',
+            'altura' => $request->altura,
+            'ancho' => $request->ancho,
+            'largo' => $request->largo,
+            'umedimens' => $request->umedimens,
+            'cantidad' => $request->cantidad,
+            'potencia' => $request->potencia,
+            'id_empresa' => $request->id_empresa,
+            'estado_equipo' =>'1',
+        ]);
 
-        Flash::success('Equipo saved successfully.');
+        $id=DB::table('equipo')->max('id'); 
 
-        return $request->all();
+        return response(['id' => $id]);
     }
+
+    public function ActualizarEquipoPrincipal(Request $request)
+    {
+        DB::table('equipo')
+            ->where('id', '=', $request->id)
+            ->update([
+                'idequipo' => $request->codigo,
+                'descripcion' => $request->descripcion,
+                'id_marca' => $request->id_marca,
+                'id_pais' => $request->id_ubicacion,
+                'peso' => $request->peso,
+                'modelo' => $request->modelo,
+                'peso_envio' => $request->peso_envio,
+                'estado_cliente' =>'1',
+                'altura' => $request->altura,
+                'ancho' => $request->ancho,
+                'largo' => $request->largo,
+                'umedimens' => $request->umedimens,
+                'cantidad' => $request->cantidad,
+                'potencia' => $request->potencia,
+                'id_empresa' => $request->id_empresa,
+                'estado_equipo' =>'1',
+            ]);
+    }
+    public function BuscarEquipoPrincipal(Request $request)
+    {
+
+       $codigo=$request->codigo;
+
+       $resultado=DB::table('equipo')
+                        ->select('equipo.id','equipo.descripcion','equipo.peso','equipo.idequipo','equipo.modelo','equipo.peso','equipo.umedimens','equipo.peso_envio','equipo.umedpeso','equipo.altura','equipo.ancho','equipo.largo','equipo.cantidad','equipo.potencia','equipo.estado_equipo','empresas.nombre as nombreEmpresa','equipo.id_empresa','equipo.id_marca','marcas.codigo','equipo.id_pais','paises.nombre as nombrePais')
+                        ->join('marcas', 'marcas.id', '=', 'equipo.id_marca')
+                        ->join('empresas', 'empresas.id', '=', 'equipo.id_empresa')
+                        ->join('paises', 'paises.id', '=', 'equipo.id_pais')
+                        ->where('equipo.idequipo',  $codigo)->get();
+
+        
+          return response(['data' => $resultado]);
+
+    }
+    
 
      public function listarEquipos(Request $request)
      {

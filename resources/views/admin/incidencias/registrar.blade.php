@@ -1,15 +1,15 @@
 <form id="incidencia_equipo" data-parsley-validate class="form-horizontal form-label-left">
 {{ csrf_field() }}
 <div class="form-group">
-     <label class="control-label col-md-1 col-sm-1 col-xs-1" for="first-name">Id
+     <label class="control-label col-md-1 col-sm-1 col-xs-1" for="first-name">Código
     </label>
     <div class="col-md-3 col-sm-3 col-xs-6">
         <input type="text" id="codigo" name="codigo" required="required" class="form-control col-md-7 col-xs-12">
     </div>
-     <label class="control-label col-md-1 col-sm-1 col-xs-1" for="first-name"> <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">Activo Prioridad 
-    </label>
+   {{--   <label class="control-label col-md-1 col-sm-1 col-xs-1" for="first-name"> <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">Activo Prioridad 
+    </label> --}}
 
-    <div class="col-md-3 col-sm-3 col-xs-6">
+    {{-- <div class="col-md-3 col-sm-3 col-xs-6">
       
       <select class="form-control" id="prioridad" name="prioridad">
           <option value="1">1</option>
@@ -24,7 +24,7 @@
           <option value="10">10</option>
        </select>
 
-    </div>
+    </div> --}}
 </div>
 <div class="form-group">
     <label class="control-label col-md-1 col-sm-1 col-xs-1" for="last-name">Tipos de Incidencias

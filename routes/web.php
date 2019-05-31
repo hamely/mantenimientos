@@ -32,6 +32,8 @@ Route::resource('tipoMantenimientos', 'tipo_mantenimientoController');
 Route::resource('areas', 'AreaController');
 
 Route::post('CrearEquipoPrincipal/', [ 'uses' => 'EquipoController@CrearEquipoPrincipal' ])->name('CrearEquipoPrincipal');
+Route::post('BuscarEquipoPrincipal/', [ 'uses' => 'EquipoController@BuscarEquipoPrincipal' ])->name('BuscarEquipoPrincipal');
+Route::post('ActualizarEquipoPrincipal/', [ 'uses' => 'EquipoController@ActualizarEquipoPrincipal' ])->name('ActualizarEquipoPrincipal');
 Route::post('listarEquipos/', [ 'uses' => 'EquipoController@listarEquipos' ])->name('listarEquipos');
 Route::resource('equipos', 'EquipoController');
 

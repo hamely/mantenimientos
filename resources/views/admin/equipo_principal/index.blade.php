@@ -13,9 +13,14 @@
       
 		   <div class="col-md-3 col-sm-3 col-xs-6">
 		   
-		     <input type="text" class="form-control" placeholder="Buscar id">
+		     <input type="text" class="form-control"  id="codigoBuscar" placeholder="Buscar id">
 		  <br>
 		  </div>
+          <div class="col-md-3 col-sm-3 col-xs-6">
+           
+             <button class="btn btn-success" id="BuscarEquipo"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+          <br>
+          </div>
 	</div>
     </section>
 		
@@ -126,7 +131,7 @@
 
   
 <script>
-
+$('#btnActualizar').attr("disabled", true);
 
 function busquedaFunction(titulo,opcion) {
  	
@@ -179,7 +184,7 @@ function busquedaFunction(titulo,opcion) {
 	 						
 	 						$.each(respuesta.data,function(index,element)
 	                            { 
-	                              htmlListar=htmlListar + "<tr value='"+element.codigo+"'>"+ 
+	                              htmlListar=htmlListar + "<tr value='"+element.id+"'>"+ 
 	                                                      "<td id='codigo'>"+element.codigo+" </td>"+
 	                                                      "<td class='boton' style='cursor:pointer;'>"+element.descripcion+"</td>"+
 	                                                    "</tr>";
@@ -194,7 +199,7 @@ function busquedaFunction(titulo,opcion) {
 	 						
 	 						$.each(respuesta.data,function(index,element)
 	                            { 
-	                              htmlListar=htmlListar + "<tr value='"+element.codigo+"'>"+ 
+	                              htmlListar=htmlListar + "<tr value='"+element.id+"'>"+ 
 	                                                      "<td id='codigo'>"+element.codigo+" </td>"+
 	                                                      "<td class='boton' style='cursor:pointer;'>"+element.descripcion+"</td>"+
 	                                                    "</tr>";
@@ -210,7 +215,7 @@ function busquedaFunction(titulo,opcion) {
 		 					
 		 						$.each(respuesta.data,function(index,element)
 		                            { 
-		                              htmlListar=htmlListar + "<tr value='"+element.codigo+"'>"+ 
+		                              htmlListar=htmlListar + "<tr value='"+element.id+"'>"+ 
 		                                                      "<td id='codigo'>"+element.codigo+" </td>"+
 		                                                      "<td class='boton' style='cursor:pointer;'>"+element.descripcion+"</td>"+
 		                                                    "</tr>";
@@ -224,7 +229,7 @@ function busquedaFunction(titulo,opcion) {
 		                    {
 		                        $.each(respuesta.data,function(index,element)
 		                            { 
-		                              htmlListar=htmlListar + "<tr value='"+element.nombre+"'>"+ 
+		                              htmlListar=htmlListar + "<tr value='"+element.id+"'>"+ 
 		                                                      "<td id='codigo'>"+element.id+" </td>"+
 		                                                      "<td class='boton' style='cursor:pointer;'>"+element.nombre+"</td>"+
 		                                                    "</tr>";
@@ -237,8 +242,8 @@ function busquedaFunction(titulo,opcion) {
 		                    {
 		                        $.each(respuesta.data,function(index,element)
 		                            { 
-		                              htmlListar=htmlListar + "<tr value='"+element.nombre+"'>"+ 
-		                                                      "<td id='codigo'>"+element.id+" </td>"+
+		                              htmlListar=htmlListar + "<tr value='"+element.id+"'>"+ 
+		                                                      "<td id='codigo'>"+element.nombre+" </td>"+
 		                                                      "<td class='boton' style='cursor:pointer;'>"+element.nombre+"</td>"+
 		                                                    "</tr>";
 		                            });
@@ -257,36 +262,46 @@ function busquedaFunction(titulo,opcion) {
 
              $(".table").on('click','tr',function(e){
                     e.preventDefault();
-                    trValue= $(this).attr('value');
-                    
+                    var trValue= $(this).attr('value');
+                    var name= $(this).find("td:last-child").text();
+
+
                     if(opcion=='1')
                     {
+                      
                       opcion=0;
-                      $('#equipo_padre').val(trValue);
-              
+                      $('#id_equipo_padre').val(trValue);
+                      $('#equipo_padre').val(name);
+                        
                     }
                     if(opcion=='2')
                     {
                       opcion=0;
-                      $('#marca').val(trValue);
+                      
+                      $('#id_marca').val(trValue);
+                      $('#marca').val(name);
               
                     }
                     if(opcion=='3')
                     {
+                     
                       opcion=0;
-                      $('#tipo').val(trValue);
+                      $('#id_tipo').val(trValue);
+                      $('#tipo').val(name);
                    
                     }
                     if(opcion=='4')
                     {
                       opcion=0;
-                      $('#ubicacion').val(trValue);
+                      $('#id_ubicacion').val(trValue);
+                      $('#ubicacion').val(name);
                     
                     }
                     if(opcion=='5')
                     {
                       opcion=0;
-                      $('#empresa').val(trValue);
+                      $('#id_empresa').val(trValue);
+                      $('#empresa').val(name);
                     
                     }
 
@@ -314,12 +329,13 @@ $(function()
                             data: $("#form_equipo").serialize(), 
                             success: function(data)             
                             {
+                                    $("#id").val(data.id);
                                    Swal.fire({
-                                position: 'top-end',
-                                type: 'success',
-                                title: 'Se registro correctamente',
-                                showConfirmButton: false,
-                                timer: 1500
+                                    position: 'top-end',
+                                    type: 'success',
+                                    title: 'Se registro correctamente',
+                                    showConfirmButton: false,
+                                    timer: 1500
                                  })
                               
 
@@ -342,7 +358,105 @@ $(function()
                        }
                     }
                 },
-             
+                
+                 peso: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Requiere peso'
+                        },
+
+                       regexp: {
+               
+                         regexp: /^[0-9]+$/,
+               
+                         message: 'Solo se puede ingresar número'
+               
+                       }
+                    }
+                },
+                 peso: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Requiere codigo'
+                        },
+
+                       regexp: {
+               
+                         regexp: /^[0-9]+([,][0-9]+)?$/,
+               
+                         message: 'Solo se puede ingresar número'
+               
+                       }
+                    }
+                },
+                 modelo: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Requiere modelo'
+                        }
+                    }
+                },
+                 altura: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Requiere codigo'
+                        },
+
+                       regexp: {
+               
+                         regexp: /^[0-9]+([,][0-9]+)?$/,
+               
+                         message: 'Solo se puede ingresar número'
+               
+                       }
+                    }
+                },
+                peso_envio: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Requiere codigo'
+                        },
+
+                       regexp: {
+               
+                         regexp: /^[0-9]+([,][0-9]+)?$/,
+               
+                         message: 'Solo se puede ingresar número'
+               
+                       }
+                    }
+                },
+                 ancho: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Requiere codigo'
+                        },
+
+                       regexp: {
+               
+                         regexp: /^[0-9]+([,][0-9]+)?$/,
+               
+                         message: 'Solo se puede ingresar número'
+               
+                       }
+                    }
+                },
+                largo: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Requiere codigo'
+                        },
+
+                       regexp: {
+               
+                         regexp: /^[0-9]+([,][0-9]+)?$/,
+               
+                         message: 'Solo se puede ingresar número'
+               
+                       }
+                    }
+                },
+
             }
 
 
@@ -355,7 +469,74 @@ $(function()
           // $("#form_equipo")[0].reset();
            location.reload();
         });
-        
+
+      $("#BuscarEquipo" ).click(function() {
+            var codigo=$("#codigoBuscar").val();
+             $.ajax({                        
+                            url:'{{ route('BuscarEquipoPrincipal') }}',
+                             type: 'POST',
+                             data:{
+                                    "_token": "{{ csrf_token() }}",
+                                     "codigo":codigo,
+                                },
+                            success: function(respuesta)             
+                            {
+                                $.each(respuesta.data,function(index,element)
+                                    { 
+                                      
+                                      $("#codigo").val(element.idequipo);
+
+                                      $("#marca").val(element.codigo);
+                                      $("#id_marca").val(element.id_marca);
+
+                                      $("#descripcion").val(element.descripcion);
+
+                                      $("#ubicacion").val(element.nombrePais);
+                                      $("#id_ubicacion").val(element.id_pais);
+
+                                      $("#empresa").val(element.nombreEmpresa);
+                                      $("#id_empresa").val(element.id_empresa);
+
+                                      $("#modelo").val(element.modelo);
+                                      $("#peso").val(element.peso);
+                                      $("#peso_envio").val(element.peso_envio);
+
+                                      $("#altura").val(element.altura);
+                                      $("#ancho").val(element.ancho);
+                                      $("#largo").val(element.largo);
+
+                                       $("#umedimens").val(element.umedimens);
+                                       $("#cantidad").val(element.cantidad);
+                                       $("#potencia").val(element.potencia);
+                                       $("#id").val(element.id);
+
+                                    });
+                                    $('#btnActualizar').attr("disabled", false);
+                              
+                            }
+                  });
+        });
+
+      
+       $("#btnActualizar" ).click(function() {
+        $.ajax({                        
+                            url:'{{ route('ActualizarEquipoPrincipal') }}',
+                             type: 'POST',           
+                            data: $("#form_equipo").serialize(), 
+                            success: function(data)             
+                            {
+                                   Swal.fire({
+                                position: 'top-end',
+                                type: 'success',
+                                title: 'Se actuzalizo correctamente su información',
+                                showConfirmButton: false,
+                                timer: 1500
+                                 })
+                              
+
+                            }
+        });   
+    });   
 });       
 
        

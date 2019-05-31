@@ -5,6 +5,7 @@
         </label>
         <div class="col-md-3 col-sm-3 col-xs-6">
             <input type="text" id="codigo"  name="codigo" class="form-control col-md-7 col-xs-12" >
+            <input type="hidden" id="id"  name="id" class="form-control col-md-7 col-xs-12" >
         </div>
        
     </div>
@@ -12,7 +13,8 @@
         <label class="control-label col-md-1 col-sm-1 col-xs-1" for="last-name">Equipo padre 
         </label>
         <div class="col-md-3 col-sm-6 col-xs-12">
-            <input type="text" id="equipo_padre" name="equipo_padre"  class="form-control col-md-7 col-xs-12">
+            <input type="text" id="equipo_padre" name="equipo_padre"  class="form-control col-md-7 col-xs-12" readonly>
+            <input type="hidden" id="id_equipo_padre" name="id_equipo_padre"  class="form-control col-md-7 col-xs-12" >
         </div>
         <div class="col-md-3 col-sm-6 col-xs-12">
         	<button type="button" class="btn btn-info btn-xs" onclick="busquedaFunction('Equipo padre ','1')"><span class="fa fa-search-plus"></span></button>
@@ -23,7 +25,8 @@
         <label class="control-label col-md-1 col-sm-1 col-xs-1">Marca
         </label>
         <div class="col-md-3 col-sm-6 col-xs-12">
-            <input id="marca" name="marca" class="date-picker form-control col-md-7 col-xs-12"  type="text">
+            <input id="marca" name="marca" class="date-picker form-control col-md-7 col-xs-12"  type="text" readonly>
+            <input type="hidden" id="id_marca" name="id_marca"  class="form-control col-md-7 col-xs-12" >
         </div>
         <div class="col-md-3 col-sm-6 col-xs-12">
         	<button type="button" class="btn btn-info btn-xs" onclick="busquedaFunction('Marca','2')"><span class="fa fa-search-plus"></span></button>
@@ -35,7 +38,7 @@
         <label class="control-label col-md-1 col-sm-1 col-xs-1">Descripción
         </label>
         <div class="col-md-3 col-sm-6 col-xs-12">
-            <input id="descripcion" name="descripcion" class="date-picker form-control col-md-7 col-xs-12"  type="text">
+            <input id="descripcion" name="descripcion" class="date-picker form-control col-md-7 col-xs-12"  type="text" >
         </div>
     </div>
 
@@ -43,7 +46,8 @@
         <label class="control-label col-md-1 col-sm-1 col-xs-1">Tipo
         </label>
         <div class="col-md-3 col-sm-6 col-xs-12">
-            <input id="tipo" name="tipo" class="date-picker form-control col-md-7 col-xs-12"  type="text">
+            <input id="tipo" name="tipo" class="date-picker form-control col-md-7 col-xs-12"  type="text" readonly>
+            <input type="hidden" id="id_tipo" name="id_tipo"  class="form-control col-md-7 col-xs-12" >
         </div>
         <div class="col-md-3 col-sm-6 col-xs-12">
         	<button type="button" class="btn btn-info btn-xs" onclick="busquedaFunction('Tipo','3')"><span class="fa fa-search-plus"></span></button>
@@ -54,7 +58,8 @@
         <label class="control-label col-md-1 col-sm-1 col-xs-1">Ubicación 
         </label>
         <div class="col-md-3 col-sm-6 col-xs-12">
-            <input id="ubicacion" name="ubicacion" class="date-picker form-control col-md-7 col-xs-12"  type="text">
+            <input id="ubicacion" name="ubicacion" class="date-picker form-control col-md-7 col-xs-12"  type="text" readonly>
+            <input id="id_ubicacion" name="id_ubicacion" class="date-picker form-control col-md-7 col-xs-12"  type="hidden">
         </div>
 
 		<div class="col-md-3 col-sm-6 col-xs-12">
@@ -68,7 +73,8 @@
         <label class="control-label col-md-1 col-sm-1 col-xs-1">Empresa
         </label>
         <div class="col-md-3 col-sm-6 col-xs-12">
-            <input id="empresa" name="empresa" class="date-picker form-control col-md-7 col-xs-12"  type="text">
+            <input id="empresa" name="empresa" class="date-picker form-control col-md-7 col-xs-12"  type="text" readonly>
+            <input id="id_empresa" name="id_empresa" class="date-picker form-control col-md-7 col-xs-12"  type="hidden">
         </div>
 
 		<div class="col-md-3 col-sm-6 col-xs-12">
@@ -170,8 +176,9 @@
 
     <div class="form-group">
     <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-        <button class="btn btn-primary" type="button" id="limpiarCaja">Limpiar</button>
-        <button type="submit" class="btn btn-success">Guardar</button>
+        <button class="btn btn-danger" type="button" id="limpiarCaja">Limpiar</button>
+        <button type="submit" class="btn btn-primary">Guardar</button>
+        <button type="" class="btn btn-success" id="btnActualizar">Actualizar</button>
     </div>
     </div>
 

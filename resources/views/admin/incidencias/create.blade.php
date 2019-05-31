@@ -256,7 +256,7 @@ function busquedaFunction(titulo,opcion) {
                               
                               $("#incidencia_equipo")[0].reset();
                               alert("se inserto la incidencia");
-
+                              
                            }
                      });
 
