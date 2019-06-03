@@ -42,6 +42,10 @@ class Equipo_incidenciaController extends Controller
                 'prioridad' => '1',
                 ]
             );
+
+        $id=DB::table('equipo_incidencia')->max('id'); 
+
+        return response(['id' => $id]);
     }
 
     /**
@@ -50,6 +54,38 @@ class Equipo_incidenciaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+    public function BuscarIncidencia(Request $request)
+    {
+
+        $codigo=$request->codigo;
+
+        $resultado=DB::table('equipo_incidencia')
+                                ->select('equipo.id as idEquipo','equipo.descripcion as descripcionEquipo','empresas.id as idEmpresa','empresas.nombre as nombreEmpresa','equipo_incidencia.id as idInsidencia','equipo_incidencia.descripcion as descripIncidencia','equipo_incidencia.fecha_incidencia','equipo_incidencia.codigo as codigoEquipoIncidencia','tipo_incidencias.id as idTipoInsicencia','tipo_incidencias.description as descriptionTipoInsicencia')
+                                ->join('equipo', 'equipo.id', '=', 'equipo_incidencia.id_equipo')
+                                ->join('empresas', 'empresas.id', '=', 'equipo_incidencia.id_empresa')
+                                ->join('tipo_incidencias', 'tipo_incidencias.id', '=', 'equipo_incidencia.id_incidencia')
+                                ->where('equipo_incidencia.codigo', $codigo)->get();
+
+         return response(['data' => $resultado]);
+    }
+
+    public function ActualizarIncidencial(Request $request)
+    {
+       
+        DB::table('equipo_incidencia')
+            ->where('id', '=', $request->idCodigo)
+            ->update([
+                'codigo' => $request->codigo, 
+                'id_equipo' => $request->id_equipo,
+                'id_incidencia' =>$request->id_incidencia,
+                'id_empresa' => $request->id_tienda,
+                'descripcion' => $request->descripcion,
+                'fecha_incidencia' => $request->fecha,
+          
+            ]);
+    
+    }
     public function store(Request $request)
     {
         //

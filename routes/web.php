@@ -81,6 +81,8 @@ Route::post('listarIncidencias/', [ 'uses' => 'TipoIncidenciaController@listarIn
 Route::resource('tipoIncidencias', 'TipoIncidenciaController');
 
 Route::post('crearIncidencia/', [ 'uses' => 'Equipo_incidenciaController@crearIncidencia' ])->name('crearIncidencia_equipo');
+Route::post('BuscarIncidencia/', [ 'uses' => 'Equipo_incidenciaController@BuscarIncidencia' ])->name('BuscarIncidencia');
+Route::post('ActualizarIncidencia/', [ 'uses' => 'Equipo_incidenciaController@ActualizarIncidencial' ])->name('ActualizarIncidencia');
 Route::resource('equipo_incidenciaController', 'Equipo_incidenciaController');
 
 

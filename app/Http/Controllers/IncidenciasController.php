@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use DB;
 class IncidenciasController extends Controller
 {
     /**
@@ -13,7 +13,11 @@ class IncidenciasController extends Controller
      */
     public function index()
     {
-        return view('admin.incidencias.index');
+       
+        $data=DB::table('equipo_incidencia')->get(); 
+        
+
+        return view('admin.incidencias.index',['data' =>$data]);
     }
 
     /**
@@ -40,6 +44,7 @@ class IncidenciasController extends Controller
         //
     }
 
+ 
     /**
      * Display the specified resource.
      *

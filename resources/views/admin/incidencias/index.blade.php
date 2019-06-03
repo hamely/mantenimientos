@@ -44,25 +44,24 @@
                       <thead style="background-color: #5A738E;color:#FFFFFF;">
                         <tr>
                           <th>Nº</th>
-                          <th>Incidencia</th>
+                          <th>Código</th>
                           <th>Cliente</th>
                           <th>Tienda</th>
-                          <th>Motivo</th>
-                          <th>Estado</th>
-                   
+                          <th>Fecha</th>
+                          <th>Descripción</th>
                         </tr>
                       </thead>
                       <tbody>
-                   
+                      @foreach($data as $item)
                             <tr>
-                                <td></td>
-                                <td></td>
+                                <td>{{ $item->id}}</td>
+                                <td>{{ $item->codigo}}</td>
                                 <td></td>                          
                                 <td></td> 
-                                <td></td>
-                                <td></td>  
+                                <td>{{ $item->fecha_incidencia}}</td>
+                                <td>{{ $item->descripcion}}</td>  
                             </tr>
-                
+                      @endforeach
                 
                       </tbody>
                     </table>

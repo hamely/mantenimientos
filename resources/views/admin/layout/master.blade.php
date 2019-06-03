@@ -26,6 +26,8 @@
     <link href="{{ URL::asset('admin/build/css/sweetalert2.min.css')}}" rel="stylesheet">
     <link href="{{ URL::asset('admin/build/css/custom.min.css')}}" rel="stylesheet">
     <link href="//cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.0/css/bootstrapValidator.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker3.css" rel="stylesheet" />
+
 </head>
 
 
@@ -80,6 +82,11 @@
     <script src="{{ URL::asset('admin/build/js/sweetalert2.min.js')}}"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.4.5/js/bootstrapvalidator.min.js"></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.js"></script>
+  {{--   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script> --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/locales/bootstrap-datepicker.es.min.js"></script>
 
   @yield('script')
 </body>

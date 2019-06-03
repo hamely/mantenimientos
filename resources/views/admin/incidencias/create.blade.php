@@ -8,10 +8,10 @@
 		  <label class="control-label col-md-1 col-sm-1 col-xs-1" for="first-name"> 
 		  	Buscar Id 
 	      </label>
-        <button id="nuevo" name="nuevo" >Buscar</button>
+        <button id="btn_buscar" name="btn_buscar" class="btn btn-success "> <span aria-hidden="true" class="glyphicon glyphicon-search"></span> </button>
 		   <div class="col-md-3 col-sm-3 col-xs-6">
 		   
-		     <input type="text" class="form-control" placeholder="Buscar id">
+		     <input type="text" class="form-control" placeholder="Buscar id" id="btn_incidencia" name="btn_incidencia">
 		
 		  </div>
 	</div>
@@ -124,6 +124,7 @@
   
 <script>
 
+$('#btnActualizar').attr("disabled", true);
 
 function busquedaFunction(titulo,opcion) {
  	
@@ -201,6 +202,7 @@ function busquedaFunction(titulo,opcion) {
                   }
 
               });
+    
 
              $('#Busquedas').modal('show');
              
@@ -241,12 +243,31 @@ function busquedaFunction(titulo,opcion) {
     $(function() 
     {
 
-         
-          $( "#create_incidencia" ).click(function(e)
-           {
-                  
+        //fecha inicio
 
-                   e.preventDefault(); 
+        $('#datepicker').datepicker({
+            format: "dd/mm/yyyy",
+            endDate: new Date(),
+            setDate: new Date(),
+            language: "es",
+            todayHighlight: true,
+            toggleActive: true,
+            clearBtn: true,
+            autoclose: true
+        });
+        //fecha fin
+
+
+
+           $('#incidencia_equipo').bootstrapValidator({
+            container: '#messages',
+            feedbackIcons: {
+                valid: 'glyphicon glyphicon-ok',
+                invalid: 'glyphicon glyphicon-remove',
+                validating: 'glyphicon glyphicon-refresh'
+            },
+             submitHandler: function(validator, form, submitButton) {
+
                     $.ajax({                        
                            url:'{{ route('crearIncidencia_equipo') }}',
                            type: 'POST',           
@@ -254,14 +275,122 @@ function busquedaFunction(titulo,opcion) {
                            success: function(data)             
                            {
                               
-                              $("#incidencia_equipo")[0].reset();
-                              alert("se inserto la incidencia");
+                              $("#id").val(data.id);
+                                 Swal.fire({
+                                    position: 'top-end',
+                                    type: 'success',
+                                    title: 'Se registro correctamente su Incidencia',
+                                    showConfirmButton: false,
+                                    timer: 1500
+                                 })
+                           
                               
                            }
                      });
+            },
+            fields: {
+                codigo: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Requiere codigo'
+                        },
 
-                          
-            });
+                       regexp: {
+               
+                         regexp: /^[0-9]+$/,
+               
+                         message: 'Solo se puede ingresar número'
+               
+                       }
+                    }
+                },
+                
+                 descripcion: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Requiere descripción'
+                        }
+                    }
+                },
+                fecha: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Requiere fecha'
+                        }
+                    }
+                },
+
+
+            }
+
+
+        });
+
+
+            $("#btn_buscar" ).click(function() {
+            var codigo=$("#btn_incidencia").val();
+
+             $.ajax({                        
+                            url:'{{ route('BuscarIncidencia') }}',
+                             type: 'POST',
+                             data:{
+                                    "_token": "{{ csrf_token() }}",
+                                     "codigo":codigo,
+                                },
+                            success: function(respuesta)             
+                            {
+
+                                $.each(respuesta.data,function(index,element)
+                                    { 
+                                      
+                                      $("#idCodigo").val(element.idInsidencia);
+
+                                      $("#codigo").val(element.codigoEquipoIncidencia);
+
+                                      $("#equipo_incidencia").val(element.idTipoInsicencia);
+                                      $("#id_incidencia").val(element.descriptionTipoInsicencia);
+
+                                      $("#id_equipo").val(element.idEquipo);
+                                      $("#equipo_padre").val(element.descripcionEquipo);
+
+                                      $("#tienda").val(element.nombreEmpresa);
+                                      $("#id_tienda").val(element.idEmpresa);
+
+                                      $("#descripcion").val(element.descripIncidencia);
+                                      $( "#datepicker" ).datepicker().val(element.fecha_incidencia);
+
+
+                                    });
+                                     $('#btnActualizar').attr("disabled", false);
+                              
+                             }
+                  });
+        });
+
+
+
+
+
+       $("#btnActualizar" ).click(function() {
+        $.ajax({                        
+                            url:'{{ route('ActualizarIncidencia') }}',
+                             type: 'POST',           
+                            data: $("#incidencia_equipo").serialize(), 
+                            success: function(data)             
+                            {
+                                   Swal.fire({
+                                position: 'top-end',
+                                type: 'success',
+                                title: 'Se actuzalizo correctamente su insidencia',
+                                showConfirmButton: false,
+                                timer: 1500
+                                 })
+                              
+
+                            }
+        });   
+    });   
+      
        
             
     });  
