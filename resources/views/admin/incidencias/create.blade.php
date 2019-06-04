@@ -347,8 +347,8 @@ function busquedaFunction(titulo,opcion) {
 
                                       $("#codigo").val(element.codigoEquipoIncidencia);
 
-                                      $("#equipo_incidencia").val(element.idTipoInsicencia);
-                                      $("#id_incidencia").val(element.descriptionTipoInsicencia);
+                                      $("#equipo_incidencia").val(element. descriptionTipoInsicencia);
+                                      $("#id_incidencia").val(element.idTipoInsicencia);
 
                                       $("#id_equipo").val(element.idEquipo);
                                       $("#equipo_padre").val(element.descripcionEquipo);

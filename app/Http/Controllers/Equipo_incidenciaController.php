@@ -82,7 +82,6 @@ class Equipo_incidenciaController extends Controller
                 'id_empresa' => $request->id_tienda,
                 'descripcion' => $request->descripcion,
                 'fecha_incidencia' => $request->fecha,
-          
             ]);
     
     }

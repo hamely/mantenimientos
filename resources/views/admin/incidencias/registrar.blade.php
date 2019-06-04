@@ -14,7 +14,7 @@
     </label>
     <div class="col-md-3 col-sm-6 col-xs-12">
         <input type="text" id="equipo_incidencia" name="equipo_incidencia" class="form-control col-md-7 col-xs-12">
-        <input id="id_incidencia" name="id_incidencia" class="form-control col-md-7 col-xs-12" type="hidden">
+        <input id="id_incidencia" name="id_incidencia" class="form-control col-md-7 col-xs-12" type="tehidden">
          
     </div>
     <div class="col-md-3 col-sm-6 col-xs-12">
