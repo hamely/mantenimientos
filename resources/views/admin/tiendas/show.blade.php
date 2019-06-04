@@ -34,7 +34,7 @@
                   </div>
                   <div class="x_content">
 
-                      @include('admin.tiendas.show_fields')
+                         @include('admin.tiendas.show_fields')
                     <a href="{!! route('tiendas.index') !!}" class="btn btn-default">Back</a>
                   </div>
                 </div>

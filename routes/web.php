@@ -91,3 +91,6 @@ Route::resource('tipoIncidencias', 'TipoIncidenciaController');
 
 Route::resource('medidors', 'MedidorController');
 
+
+
+Route::resource('tiendas', 'TiendaController');
