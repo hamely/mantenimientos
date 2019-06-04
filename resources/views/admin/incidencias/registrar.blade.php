@@ -13,8 +13,8 @@
     <label class="control-label col-md-1 col-sm-1 col-xs-1" for="last-name">Tipos de Incidencias
     </label>
     <div class="col-md-3 col-sm-6 col-xs-12">
-        <input type="text" id="equipo_incidencia" name="equipo_incidencia" class="form-control col-md-7 col-xs-12">
-        <input id="id_incidencia" name="id_incidencia" class="form-control col-md-7 col-xs-12" type="tehidden">
+        <input type="text" id="equipo_incidencia" name="equipo_incidencia" class="form-control col-md-7 col-xs-12" readonly>
+        <input id="id_incidencia" name="id_incidencia" class="form-control col-md-7 col-xs-12" type="hidden">
          
     </div>
     <div class="col-md-3 col-sm-6 col-xs-12">
@@ -26,7 +26,7 @@
     </label>
     <div class="col-md-3 col-sm-6 col-xs-12">
       
-        <input type="text" id="equipo_padre" name="equipo_padre" class="form-control col-md-7 col-xs-12">
+        <input type="text" id="equipo_padre" name="equipo_padre" class="form-control col-md-7 col-xs-12" readonly>
         <input type="hidden" id="id_equipo" name="id_equipo" class="form-control col-md-7 col-xs-12">
     </div>
     <div class="col-md-3 col-sm-6 col-xs-12">
@@ -37,8 +37,8 @@
     <label class="control-label col-md-1 col-sm-1 col-xs-1">Tienda
     </label>
     <div class="col-md-3 col-sm-6 col-xs-12">
-       <input id="id_tienda" name="id_tienda" class="date-picker form-control col-md-7 col-xs-12"  type="hidden">
-        <input id="tienda" name="tienda" class="date-picker form-control col-md-7 col-xs-12" type="text">
+       <input id="id_tienda" name="id_tienda" class="date-picker form-control col-md-7 col-xs-12"  type="hidden" >
+        <input id="tienda" name="tienda" class="date-picker form-control col-md-7 col-xs-12" type="text" readonly>
     </div>
      <div class="col-md-3 col-sm-6 col-xs-12">
         <button type="button" class="btn btn-info btn-xs" onclick="busquedaFunction('Tienda o empresa','3')"><span class="fa fa-search-plus"></span></button>

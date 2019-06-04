@@ -54,12 +54,12 @@
                       <tbody>
                       @foreach($data as $item)
                             <tr>
-                                <td>{{ $item->id}}</td>
-                                <td>{{ $item->codigo}}</td>
+                                <td>{{ $item->idInsidencia}}</td>
+                                <td>{{ $item->codigoEquipoIncidencia}}</td>
                                 <td></td>                          
-                                <td></td> 
+                                <td>{{ $item->nombreEmpresa}}</td> 
                                 <td>{{ $item->fecha_incidencia}}</td>
-                                <td>{{ $item->descripcion}}</td>  
+                                <td>{{ $item->descripIncidencia}}</td>  
                             </tr>
                       @endforeach
                 

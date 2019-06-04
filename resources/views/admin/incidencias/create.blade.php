@@ -369,6 +369,10 @@ function busquedaFunction(titulo,opcion) {
 
 
 
+        $("#limpiarCaja" ).click(function() {
+          // $("#form_equipo")[0].reset();
+           location.reload();
+        });
 
 
        $("#btnActualizar" ).click(function() {
