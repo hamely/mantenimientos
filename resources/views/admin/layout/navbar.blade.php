@@ -41,7 +41,7 @@
                     </ul>
                   </li>
 
-                  <li><a><i class="fa fa-home"></i> INCIDENCIAS <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-bullhorn"></i> INCIDENCIAS <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="{{ url('incidencias') }}">Ticket de atención</a></li>
                       <li><a href="{{ url('ordenServicio') }}">Orden de servicio</a></li>
@@ -50,14 +50,8 @@
                     </ul>
                   </li>
               
-
-                  <li><a><i class="fa fa-home"></i> USUARIOS <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="{{URL::route('usuarios.index') }}">inicio</a></li>
-                    </ul>
-                  </li>
                   
-                  <li><a><i class="fa fa-home"></i> MANTENIMIENTOS <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-gears"></i> MANTENIMIENTOS <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="{{URL::route('tipoMantenimientos.index') }}">Tipo mantenimiento</a></li>
 
@@ -79,7 +73,11 @@
                     </ul>
                   </li>
 
-
+                   <li><a><i class="fa fa-user"></i> USUARIOS <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="{{URL::route('usuarios.index') }}">inicio</a></li>
+                    </ul>
+                  </li>
                 </ul>
               </div>
 
@@ -117,7 +115,7 @@
 
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img src="images/img.jpg" alt="">{{ auth()->user()->name }}
+                    <img src="/admin/login/usuario.jpg" alt="">{{ auth()->user()->name }}
                     <span class=" fa fa-angle-down"></span>
                   </a><br>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
