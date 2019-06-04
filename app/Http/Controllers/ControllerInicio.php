@@ -8,7 +8,9 @@ class ControllerInicio extends Controller
 {
     public function index()
     {
-    	return view('inicio');
+    	return redirect('/equipoPrincipal');
+
+    	
     }
     public function inicio()
     {
