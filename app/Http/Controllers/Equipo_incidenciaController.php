@@ -134,4 +134,16 @@ class Equipo_incidenciaController extends Controller
     {
         //
     }
+
+    public function listarIncidenciasPendientes()
+    {
+        $listar=DB::table('equipo_incidencia')
+        ->select('tipo_incidencias.description as tipoIncidencia','equipo.id as idEquipo','equipo.descripcion as descripcionEquipo','empresas.id as idEmpresa','empresas.nombre as nombreEmpresa','equipo_incidencia.id as idInsidencia','equipo_incidencia.descripcion as descripIncidencia','equipo_incidencia.fecha_incidencia','equipo_incidencia.codigo as codigoEquipoIncidencia','tipo_incidencias.id as idTipoInsicencia','tipo_incidencias.description as descriptionTipoInsicencia')
+        ->join('equipo', 'equipo.id', '=', 'equipo_incidencia.id_equipo')
+        ->join('empresas', 'empresas.id', '=', 'equipo_incidencia.id_empresa')
+        ->join('tipo_incidencias', 'tipo_incidencias.id', '=', 'equipo_incidencia.id_incidencia')
+        ->get();
+     
+        return response(['data' => $listar]);
+    }
 }

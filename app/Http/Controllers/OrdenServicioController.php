@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use DB;
 class OrdenServicioController extends Controller
 {
     /**
@@ -80,5 +80,14 @@ class OrdenServicioController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function listarTipoMantenimiento()
+    {
+        $data=DB::table('tipo_mantenimientos')
+        ->select('id','codigo','descripcion')
+        ->get();
+
+        return response(['data' => $data]);
     }
 }
