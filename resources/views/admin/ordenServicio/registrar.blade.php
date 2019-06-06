@@ -41,6 +41,10 @@
     </label>
     <div class="col-md-3 col-sm-6 col-xs-12">
         <input id="tienda" name="tienda" class="date-picker form-control col-md-7 col-xs-12" required="required" type="text">
+        <input type="hidden" id="id_tienda" name="id_tienda"  class="form-control col-md-7 col-xs-12">
+    </div>
+    <div class="col-md-3 col-sm-6 col-xs-12">
+        <button type="button" class="btn btn-info btn-xs" onclick="busquedaFunction('Tiendas ','3')"><span class="fa fa-search-plus"></span></button>
     </div>
 </div>
 

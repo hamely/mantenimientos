@@ -143,8 +143,9 @@ function busquedaFunction(titulo,opcion) {
 
     if(opcion=='3')
     {
-      var url='{{ route('listarEmpresas') }}';
+      var url='{{ route('listarTiendas') }}';
     }
+
     
     
     var opcionUrl;
@@ -193,17 +194,14 @@ function busquedaFunction(titulo,opcion) {
                         $.each(respuesta.data,function(index,element)
                             { 
                               htmlListar=htmlListar + "<tr value='"+element.id+"'>"+ 
-                                                      "<td id='codigo'>"+element.nombre+" </td>"+
-                                                      "<td class='boton' style='cursor:pointer;'>"+element.descripcion+"</td>"+
+                                                      "<td id='codigo'>"+element.codigo+" </td>"+
+                                                      "<td class='boton' style='cursor:pointer;'>"+element.nombre+"</td>"+
                                                     "</tr>";
                             });
 
                             $("#tableListar").html(htmlListar);
                     }
-                    
-                      
                   }
-
               });
     
 
@@ -237,8 +235,6 @@ function busquedaFunction(titulo,opcion) {
                       $('#id_tienda').val(trValue);
                       $('#Busquedas').modal('hide');
                     }
-                  
-                  
                 }); 
       }
    

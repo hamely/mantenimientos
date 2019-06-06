@@ -85,9 +85,17 @@ class OrdenServicioController extends Controller
     public function listarTipoMantenimiento()
     {
         $data=DB::table('tipo_mantenimientos')
-        ->select('id','codigo','descripcion')
-        ->get();
+                ->select('id','codigo','descripcion')
+                ->get();
 
         return response(['data' => $data]);
+    }
+    public function listarTiendas()
+    {
+        $data=DB::table('tiendas')
+                ->select('id','codigo','nombre')
+                ->get();
+        
+        return response(['data' =>$data]);
     }
 }
