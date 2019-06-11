@@ -1,19 +1,21 @@
-
 @extends('admin.layout.master')
 
 @section('content')
 
  <div class="right_col" role="main">
- <section class="content-header">
-
-    </section>
           <div class="">
+            <div class="page-title">
+
+
+            </div>
+
+            <div class="clearfix"></div>
 
             <div class="row">
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                  @include('flash::message')
+
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
@@ -30,12 +32,18 @@
                       </li>
                     </ul>
                     <div class="clearfix"></div>
-
                   </div>
                   <div class="x_content">
-
-                      @include('admin.tiendas.show_fields')
-                    <a href="{!! route('tiendas.index') !!}" class="btn btn-default">Back</a>
+                    <p class="text-muted font-13 m-b-30">
+                    </p>
+                    @include('adminlte-templates::common.errors')
+                    <div class="box-body">
+                            <div class="row">
+                            {!! Form::open(['route' => 'tiendas.store']) !!}
+                                @include('admin.tiendas.fields')
+                            {!! Form::close() !!}
+                            </div>
+                        </div>
                   </div>
                 </div>
               </div>

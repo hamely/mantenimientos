@@ -1,4 +1,3 @@
-
 @extends('admin.layout.master')
 
 @section('content')
@@ -34,8 +33,20 @@
                   </div>
                   <div class="x_content">
 
-                      @include('admin.tiendas.show_fields')
-                    <a href="{!! route('tiendas.index') !!}" class="btn btn-default">Back</a>
+                  @include('adminlte-templates::common.errors')
+                    <div class="box box-primary">
+                        <div class="box-body">
+                            <div class="row">
+                            {!! Form::model($tienda, ['route' => ['tiendas.update', $tienda->id], 'method' => 'patch']) !!}
+
+                                @include('admin.tiendas.fields')
+
+                            {!! Form::close() !!}
+                            </div>
+                        </div>
+                    </div>
+
+
                   </div>
                 </div>
               </div>
@@ -52,4 +63,6 @@
 @section('script')
 
 
+
 @endsection
+

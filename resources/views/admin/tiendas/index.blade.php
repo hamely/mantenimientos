@@ -30,12 +30,12 @@
                       </li>
                     </ul>
                     <div class="clearfix"></div>
-
+TIENDAS
                   </div>
+                  <h1 class="pull-left"> <a class="btn btn-primary pull-right" style="margin-top: -10px;margin-bottom: 5px" href="{!! route('tiendas.create') !!}">Crear</a></h1>
                   <div class="x_content">
 
-                      @include('admin.tiendas.show_fields')
-                    <a href="{!! route('tiendas.index') !!}" class="btn btn-default">Back</a>
+                  @include('admin.tiendas.table')
                   </div>
                 </div>
               </div>
@@ -50,6 +50,17 @@
 
 
 @section('script')
+<script>
+$(document).ready(function() {
+  $('#inicio').DataTable({
+    "language": {
+      "url": "/admin/idioma/Spanish.json"
+    }
+  });
+});
+</script>
 
 
 @endsection
+
+

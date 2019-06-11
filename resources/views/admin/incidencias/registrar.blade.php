@@ -18,7 +18,7 @@
          
     </div>
     <div class="col-md-3 col-sm-6 col-xs-12">
-        <button type="button" class="btn btn-info btn-xs" onclick="busquedaFunction('Tipo de Incidencias ','1')"><span class="fa fa-search-plus"></span></button>
+        <button type="button" class="btn btn-info btn-xs" onclick="busquedaFunction('Incidencias ','1')"><span class="fa fa-search-plus"></span></button>
     </div>
 </div>
 <div class="form-group">
@@ -58,7 +58,7 @@
         Fecha
     </label>
     <div class="col-md-3 col-sm-6 col-xs-12">
-        <input id="datepicker" name="fecha"  class="form-control" >
+        <input id="datepicker" name="fecha" value="{!! $date !!}" class="form-control" >
     </div>
     
 </div>

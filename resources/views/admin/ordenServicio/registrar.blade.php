@@ -6,25 +6,7 @@
     <div class="col-md-3 col-sm-3 col-xs-6">
         <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12">
     </div>
-     <label class="control-label col-md-1 col-sm-1 col-xs-1" for="first-name"> <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">Activo Prioridad 
-    </label>
 
-    <div class="col-md-3 col-sm-3 col-xs-6">
-      
-      <select class="form-control" id="prioridad" name="prioridad">
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-          <option value="6">6</option>
-          <option value="7">7</option>
-          <option value="8">8</option>
-          <option value="9">9</option>
-          <option value="10">10</option>
-       </select>
-
-    </div>
 </div>
 <div class="form-group">
     <label class="control-label col-md-1 col-sm-1 col-xs-1" for="last-name">Nro de orden     </label>
@@ -36,10 +18,11 @@
     <label class="control-label col-md-1 col-sm-1 col-xs-1" for="last-name">Incidencias pendientes
     </label>
     <div class="col-md-3 col-sm-6 col-xs-12">
-        <input type="text" id="equipo_padre" name="equipo_padre" required="required" class="form-control col-md-7 col-xs-12">
+        <input type="text" id="incidencias_pendientes" name="incidencias_pendientes" required="required" class="form-control col-md-7 col-xs-12">
+        <input type="hidden" id="id_incidencias_pendientes" name="id_incidencia_pendiente"  class="form-control col-md-7 col-xs-12">
     </div>
     <div class="col-md-3 col-sm-6 col-xs-12">
-        <button type="button" class="btn btn-info btn-xs" onclick="busquedaFunction('Incidencias ','1')"><span class="fa fa-search-plus"></span></button>
+        <button type="button" class="btn btn-info btn-xs" onclick="busquedaFunction('Incidencias pendientes ','1')"><span class="fa fa-search-plus"></span></button>
     </div>
 </div>
 <div class="form-group">
@@ -47,9 +30,10 @@
     </label>
     <div class="col-md-3 col-sm-6 col-xs-12">
         <input type="text" id="tipo_mantenimiento" name="tipo_mantenimiento" required="required" class="form-control col-md-7 col-xs-12">
+        <input type="hidden" id="id_tipo_mantenimiento" name="id_tipo_mantenimiento"  class="form-control col-md-7 col-xs-12">
     </div>
     <div class="col-md-3 col-sm-6 col-xs-12">
-        <button type="button" class="btn btn-info btn-xs" onclick="busquedaFunction('Tipo mantenimiento ','1')"><span class="fa fa-search-plus"></span></button>
+        <button type="button" class="btn btn-info btn-xs" onclick="busquedaFunction('Tipo mantenimiento ','2')"><span class="fa fa-search-plus"></span></button>
     </div>
 </div>
 <div class="form-group">
@@ -57,6 +41,10 @@
     </label>
     <div class="col-md-3 col-sm-6 col-xs-12">
         <input id="tienda" name="tienda" class="date-picker form-control col-md-7 col-xs-12" required="required" type="text">
+        <input type="hidden" id="id_tienda" name="id_tienda"  class="form-control col-md-7 col-xs-12">
+    </div>
+    <div class="col-md-3 col-sm-6 col-xs-12">
+        <button type="button" class="btn btn-info btn-xs" onclick="busquedaFunction('Tiendas ','3')"><span class="fa fa-search-plus"></span></button>
     </div>
 </div>
 

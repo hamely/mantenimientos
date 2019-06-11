@@ -70,6 +70,8 @@
                       <li><a href="{{URL::route('tipos.index') }}">Tipo</a></li>
                       <li><a href="{{URL::route('tipoIncidencias.index') }}">Tipo incidencias</a></li>
                       <li><a href="{{URL::route('medidors.index') }}">Medidores</a></li>
+                      <li><a href="{{URL::route('tiendas.index') }}">Tiendas</a></li>
+                      
                     </ul>
                   </li>
 

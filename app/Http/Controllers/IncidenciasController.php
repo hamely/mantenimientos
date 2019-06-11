@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
+use Carbon\Carbon;
 class IncidenciasController extends Controller
 {
     /**
@@ -33,9 +34,14 @@ class IncidenciasController extends Controller
 
     
      
-     public function create()
+    public function create()
     {
-        return view('admin.incidencias.create');
+        $fechaA = Carbon::now('America/Lima');
+        $date=$fechaA->format('Y-m-d');
+        
+        
+
+        return view('admin.incidencias.create',['date'=>$date]);
     }
 
     /**

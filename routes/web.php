@@ -79,6 +79,11 @@ Route::resource('tipos', 'TipoController');
 
 Route::post('listarIncidencias/', [ 'uses' => 'TipoIncidenciaController@listarIncidencias' ])->name('listarIncidencias');
 Route::resource('tipoIncidencias', 'TipoIncidenciaController');
+Route::post('listarIncidenciasPendientes/', [ 'uses' => 'Equipo_incidenciaController@listarIncidenciasPendientes' ])->name('listarIncidenciasPendientes');
+
+Route::post('listarTipoMantenimiento/', ['uses' =>'OrdenServicioController@listarTipoMantenimiento'])->name('listarTipoMantenimiento');
+
+Route::post('listarTiendas/',['uses' =>'OrdenServicioController@listarTiendas'])->name('listarTiendas');
 
 Route::post('crearIncidencia/', [ 'uses' => 'Equipo_incidenciaController@crearIncidencia' ])->name('crearIncidencia_equipo');
 Route::post('BuscarIncidencia/', [ 'uses' => 'Equipo_incidenciaController@BuscarIncidencia' ])->name('BuscarIncidencia');
@@ -91,3 +96,6 @@ Route::resource('tipoIncidencias', 'TipoIncidenciaController');
 
 Route::resource('medidors', 'MedidorController');
 
+
+
+Route::resource('tiendas', 'TiendaController');
