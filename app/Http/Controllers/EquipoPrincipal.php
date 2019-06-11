@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
+use Session;
 
 class EquipoPrincipal extends Controller
 {
@@ -13,7 +15,15 @@ class EquipoPrincipal extends Controller
      */
     public function index()
     {
-        return view('admin.equipo_principal.index');
+        $data=DB::table('equipo')
+        ->select('equipo.id', 'equipo.modelo','equipo.descripcion','marcas.descripcion as descripcionMarca','paises.nombre as nombrePais')
+        ->join('marcas','marcas.id','=','equipo.id_marca')
+        ->join('paises','paises.id','=','equipo.id_pais')
+        
+        ->get();
+   
+
+        return view('admin.equipo_principal.index',['data'=>$data]);
     }
 
     /**
@@ -23,7 +33,7 @@ class EquipoPrincipal extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.equipo_principal.create');
     }
 
   

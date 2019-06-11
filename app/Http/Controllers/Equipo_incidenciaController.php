@@ -40,6 +40,7 @@ class Equipo_incidenciaController extends Controller
                 'descripcion' => $request->descripcion,
                 'fecha_incidencia' => $request->fecha,
                 'prioridad' => '1',
+                
                 ]
             );
 
@@ -71,8 +72,7 @@ class Equipo_incidenciaController extends Controller
     }
 
     public function ActualizarIncidencial(Request $request)
-    {
-       
+    {      
         DB::table('equipo_incidencia')
             ->where('id', '=', $request->idCodigo)
             ->update([
@@ -82,9 +82,9 @@ class Equipo_incidenciaController extends Controller
                 'id_empresa' => $request->id_tienda,
                 'descripcion' => $request->descripcion,
                 'fecha_incidencia' => $request->fecha,
-            ]);
-    
+            ]);    
     }
+
     public function store(Request $request)
     {
         //
@@ -98,7 +98,7 @@ class Equipo_incidenciaController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**
