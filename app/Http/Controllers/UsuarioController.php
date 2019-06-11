@@ -36,8 +36,7 @@ class UsuarioController extends AppBaseController
 
 
         $usuarios = User::all();
-        return view('admin.usuarios.index')
-            ->with('usuarios', $usuarios);
+        return view('admin.usuarios.index')->with('usuarios', $usuarios);
     }
 
     /**

@@ -44,24 +44,35 @@
                       <thead style="background-color: #5A738E;color:#FFFFFF;">
                         <tr>
                           <th>Nº</th>
-                          <th>EQUIPO</th>
+                          <th>CÓDIGO</th>
                           <th>MODELO</th>
                           <th>MARCA</th>
                           <th>PAÍS</th>
                           <th>CLIENTE</th>
+                          <th>DESCRIPCIÓN</th>
+                          <th>ACCIÓN</th>
                         </tr>
                       </thead>
                       <tbody>
                    @foreach($data as $item)
 
                       <tr>
-                      <td></td>
-                        <td>{{ $item->descripcion}}</td>
+                      <td>{{ $item->id}}</td>
+                        <td>{{ $item->idequipo}}</td>
                         <td>{{ $item->modelo}}</td>
                         <td>{{ $item->descripcionMarca}}</td>
                         <td>{{ $item->nombrePais}}</td>
                         <td></td>
-                     
+                        <td>{{ $item->descripcion}}</td>
+                        <td>
+                           {!! Form::open(['route' => ['equipoPrincipal.destroy', $item->id], 'method' => 'delete']) !!}
+                            <div class='btn-group'>
+                                <a href="{!! route('equipoPrincipal.edit', [$item->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-edit"></i></a>
+                                {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
+                            </div>
+                        {!! Form::close() !!}
+
+                        </td>
                       </tr>
                    @endforeach
                           

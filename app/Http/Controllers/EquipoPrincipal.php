@@ -16,12 +16,11 @@ class EquipoPrincipal extends Controller
     public function index()
     {
         $data=DB::table('equipo')
-        ->select('equipo.id', 'equipo.modelo','equipo.descripcion','marcas.descripcion as descripcionMarca','paises.nombre as nombrePais')
+        ->select('equipo.id', 'equipo.idequipo', 'equipo.modelo','equipo.descripcion','marcas.descripcion as descripcionMarca','paises.nombre as nombrePais')
         ->join('marcas','marcas.id','=','equipo.id_marca')
         ->join('paises','paises.id','=','equipo.id_pais')
         
         ->get();
-   
 
         return view('admin.equipo_principal.index',['data'=>$data]);
     }

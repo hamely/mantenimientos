@@ -21,7 +21,6 @@ class IncidenciasController extends Controller
                                 ->join('empresas', 'empresas.id', '=', 'equipo_incidencia.id_empresa')
                                 ->join('tipo_incidencias', 'tipo_incidencias.id', '=', 'equipo_incidencia.id_incidencia')
                                 ->get();
-      
 
         return view('admin.incidencias.index',['data' =>$data]);
     }

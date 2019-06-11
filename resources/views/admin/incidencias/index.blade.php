@@ -49,6 +49,7 @@
                           <th>Tienda</th>
                           <th>Fecha</th>
                           <th>Descripción</th>
+                          <th>Acción</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -60,6 +61,15 @@
                                 <td>{{ $item->nombreEmpresa}}</td> 
                                 <td>{{ $item->fecha_incidencia}}</td>
                                 <td>{{ $item->descripIncidencia}}</td>  
+                                 <td>
+                                   {!! Form::open(['route' => ['incidencias.destroy', $item->idEquipo], 'method' => 'delete']) !!}
+                                    <div class='btn-group'>
+                                        <a href="{!! route('incidencias.edit', [$item->idEquipo]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-edit"></i></a>
+                                        {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
+                                    </div>
+                                {!! Form::close() !!}
+
+                                </td>
                             </tr>
                       @endforeach
                 
