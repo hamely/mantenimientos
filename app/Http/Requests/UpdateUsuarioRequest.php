@@ -27,7 +27,6 @@ class UpdateUsuarioRequest extends FormRequest
     {
         return [
             'name'=>'required',
-            'password1'=>'required',
         ];
     }
 }

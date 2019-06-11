@@ -130,7 +130,7 @@ class UsuarioController extends AppBaseController
 
             return redirect(route('usuarios.index'));
         }
-        if(is_null($request->password))
+        if(is_null($request->passwordd))
         {
 
             $user = User::find($id);
