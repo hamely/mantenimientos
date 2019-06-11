@@ -10,10 +10,20 @@
     {!! Form::text('email', null, ['class' => 'form-control']) !!}
 </div>
 
+<div class="form-group col-sm-6">
+    {!! Form::label('Contraseña', 'Contraseña:') !!}
+    {!! Form::text('password', null, ['class' => 'form-control']) !!}
+</div>
 <!-- Password Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('password', 'Password:') !!}
-    {!! Form::text('password1', null, ['class' => 'form-control']) !!}
+    {!! Form::label('Privilegios', 'Privilegios:') !!}
+    <select class="form-control" id="privilege" name="privilege"> 
+		<option value="admin"> Administrador </option>
+		<option value="supervisor"> Supervisor </option>
+		<option value="tecnico"> Técnico </option>
+		<option value="visitante"> Visitantes </option>
+    </select>
+
 </div>
 
 

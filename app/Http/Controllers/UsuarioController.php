@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Flash;
 use Response;
 use App\User;
+use Illuminate\Support\Facades\Auth;
 class UsuarioController extends AppBaseController
 {
     /** @var  UsuarioRepository */
@@ -18,6 +19,7 @@ class UsuarioController extends AppBaseController
     public function __construct(UsuarioRepository $usuarioRepo)
     {
         $this->usuarioRepository = $usuarioRepo;
+        $this->middleware(['auth' ,'roles:admin,supervisor,tecnico,visitante']);
     }
 
     /**
@@ -29,6 +31,10 @@ class UsuarioController extends AppBaseController
      */
     public function index(Request $request)
     {
+        
+        $user = Auth::user();
+
+
         $usuarios = User::all();
         return view('admin.usuarios.index')
             ->with('usuarios', $usuarios);
@@ -58,8 +64,8 @@ class UsuarioController extends AppBaseController
             'name'=>$request->name,
             'email'=>$request->email,
             'password'=>bcrypt( $request->input('password') ),
-            'privilege'=>'Administrador',
-            'status'=>1
+            'privilege'=>$request->privilege,
+            'status'=>'A'
           ]);
 
         Flash::success('Usuario saved successfully.');
