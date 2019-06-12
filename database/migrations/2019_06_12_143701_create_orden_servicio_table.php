@@ -16,11 +16,10 @@ class CreateOrdenServicioTable extends Migration
         Schema::create('orden_servicio', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('codigo');
-            $table->integer('id_incidencia');
             $table->integer('id_tipo_mantenimiento');
             $table->integer('id_usuario');
             $table->integer('prioridad');
-            $table->date('fecha');
+            $table->string('fecha');
             $table->text('descripcion');
             $table->integer('estado');
             $table->timestamps();
