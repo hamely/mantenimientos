@@ -44,25 +44,25 @@
                       <thead style="background-color: #5A738E;color:#FFFFFF;">
                         <tr>
                           <th>Nº</th>
-                          <th>Incidencia</th>
+                          <th>Orden</th>
                           <th>Cliente</th>
-                          <th>Tienda</th>
+                          <th>Usuario</th>
                           <th>Prioridad</th>
                           <th>Estado</th>
                    
                         </tr>
                       </thead>
                       <tbody>
-                   
+                          @foreach($data as $item)
                             <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>                          
-                                <td></td> 
-                                <td></td>
-                                <td></td>  
+                                <td> {{$item->id}}</td>
+                                <td>{{$item->descripcion}}</td>
+                                <td>michael</td>                          
+                                <td>{{$item->nameUser}}</td> 
+                                <td>{{$item->prioridad}}</td>
+                                <td>{{$item->estado}}</td>  
                             </tr>
-                
+                          @endforeach
                 
                       </tbody>
                     </table>

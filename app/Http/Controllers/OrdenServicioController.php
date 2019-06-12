@@ -13,7 +13,15 @@ class OrdenServicioController extends Controller
      */
     public function index()
     {
-        return view('admin.ordenServicio.index');
+        
+       $data=DB::table('orden_servicio')
+                                ->select('orden_servicio.id','orden_servicio.estado','orden_servicio.fecha','orden_servicio.descripcion','orden_servicio.codigo', 'orden_servicio.codigo','orden_servicio.prioridad','equipo_incidencia.id as idIncidencia','equipo_incidencia.descripcion as incidenciaDes','tipo_mantenimientos.id as idMante','tipo_mantenimientos.descripcion as manteDes','users.name as nameUser')
+                                ->join('tipo_mantenimientos', 'tipo_mantenimientos.id', '=', 'orden_servicio.id_tipo_mantenimiento')
+                                ->join('equipo_incidencia', 'equipo_incidencia.id', '=', 'orden_servicio.id_incidencia')
+                                ->join('users', 'users.id', '=', 'orden_servicio.id_usuario')
+                                ->get();
+        
+        return view('admin.ordenServicio.index',['data' =>$data]);
     }
 
     /**
@@ -34,7 +42,59 @@ class OrdenServicioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+    }
+
+    public function ordenServicioCreate(Request $request)
+    {
+
+        DB::table('orden_servicio')->insert(
+                [
+
+                'codigo' => $request->codigo, 
+                'prioridad' => $request->prioridad,
+                'id_incidencia' =>$request->id_incidencia,
+                'id_tipo_mantenimiento' => $request->id_tipo_mantenimiento,
+                'estado' => $request->estado,
+                'fecha' => $request->fecha,
+                'descripcion'=>$request->descripcion,
+                'id_usuario'=>1
+                ]
+            );
+       
+        $id=DB::table('orden_servicio')->max('id'); 
+
+        return response(['id' => $id]);
+    }
+
+     public function BuscarOrdenServicios(Request $request)
+    {
+
+        $codigo=$request->codigo;
+
+        $resultado=DB::table('orden_servicio')
+                                ->select('orden_servicio.id','orden_servicio.estado','orden_servicio.fecha','orden_servicio.descripcion','orden_servicio.codigo', 'orden_servicio.codigo','orden_servicio.prioridad','equipo_incidencia.id as idIncidencia','equipo_incidencia.descripcion as incidenciaDes','tipo_mantenimientos.id as idMante','tipo_mantenimientos.descripcion as manteDes')
+                                ->join('tipo_mantenimientos', 'tipo_mantenimientos.id', '=', 'orden_servicio.id_tipo_mantenimiento')
+                                ->join('equipo_incidencia', 'equipo_incidencia.id', '=', 'orden_servicio.id_incidencia')
+                                ->join('users', 'users.id', '=', 'orden_servicio.id_usuario')
+                                ->where('orden_servicio.codigo', $codigo)->get();
+
+         return response(['data' => $resultado]);
+    }
+
+    public function ordenServicioActualizar(Request $request)
+    {
+         DB::table('orden_servicio')
+            ->where('id', '=', $request->id)
+            ->update([
+                'codigo' => $request->codigo, 
+                'prioridad' => $request->prioridad,
+                'id_incidencia' =>$request->id_incidencia,
+                'id_tipo_mantenimiento' => $request->id_tipo_mantenimiento,
+                'estado' => $request->estado,
+                'fecha' => $request->fecha,
+                'descripcion'=>$request->descripcion,
+            ]); 
     }
 
     /**

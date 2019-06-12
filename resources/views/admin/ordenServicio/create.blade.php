@@ -8,10 +8,10 @@
 		  <label class="control-label col-md-1 col-sm-1 col-xs-1" for="first-name"> 
 		  	Buscar Id 
 	      </label>
-        <button id="nuevo" name="nuevo" >Buscar</button>
+        <button id="btn_buscar" name="btn_buscar" class="btn btn-success">Buscar</button>
 		   <div class="col-md-3 col-sm-3 col-xs-6">
 		   
-		     <input type="text" class="form-control" placeholder="Buscar id">
+		     <input type="text" class="form-control" id="codigo_orden"  name="codigo_orden" placeholder="Buscar id">
 		
 		  </div>
 	</div>
@@ -160,7 +160,7 @@ function busquedaFunction(titulo,opcion) {
                     },
                  dataType: 'JSON',
                  success: function(respuesta) {
-                 console.log(respuesta);
+                
                     if(opcion=='1' )
                     {
                         $.each(respuesta.data,function(index,element)
@@ -190,7 +190,7 @@ function busquedaFunction(titulo,opcion) {
 
                      if(opcion=='3' )
                     {
-                        console.log(respuesta);
+                        
                         $.each(respuesta.data,function(index,element)
                             { 
                               htmlListar=htmlListar + "<tr value='"+element.id+"'>"+ 
@@ -217,8 +217,8 @@ function busquedaFunction(titulo,opcion) {
                     if(opcion=='1')
                     {
                       opcion=0;
-                      $('#incidencias_pendientes').val(name);
-                      $('#id_incidencias_pendientes').val(trValue);
+                      $('#incidencias').val(name);
+                      $('#id_incidencia').val(trValue);
                       $('#Busquedas').modal('hide');
                     }
                      if(opcion=='2')
@@ -236,7 +236,7 @@ function busquedaFunction(titulo,opcion) {
                       $('#Busquedas').modal('hide');
                     }
                 }); 
-      }
+    }
    
                
     $(function() 
@@ -258,7 +258,7 @@ function busquedaFunction(titulo,opcion) {
 
 
 
-           $('#incidencia_equipo').bootstrapValidator({
+           $('#form_order_servicio').bootstrapValidator({
             container: '#messages',
             feedbackIcons: {
                 valid: 'glyphicon glyphicon-ok',
@@ -268,9 +268,9 @@ function busquedaFunction(titulo,opcion) {
              submitHandler: function(validator, form, submitButton) {
 
                     $.ajax({                        
-                           url:'{{ route('crearIncidencia_equipo') }}',
+                           url:'{{ route('ordenServicioCreate') }}',
                            type: 'POST',           
-                           data: $("#incidencia_equipo").serialize(), 
+                           data: $("#form_order_servicio").serialize(), 
                            success: function(data)             
                            {
                               
@@ -278,7 +278,7 @@ function busquedaFunction(titulo,opcion) {
                                  Swal.fire({
                                     position: 'top-end',
                                     type: 'success',
-                                    title: 'Se registro correctamente su Incidencia',
+                                    title: 'Se registro correctamente su orden de servicio',
                                     showConfirmButton: false,
                                     timer: 1500
                                  })
@@ -302,24 +302,7 @@ function busquedaFunction(titulo,opcion) {
                
                        }
                     }
-                },
-                
-                 descripcion: {
-                    validators: {
-                        notEmpty: {
-                            message: 'Requiere descripción'
-                        }
-                    }
-                },
-                fecha: {
-                    validators: {
-                        notEmpty: {
-                            message: 'Requiere fecha'
-                        }
-                    }
-                },
-
-
+                }
             }
 
 
@@ -327,10 +310,10 @@ function busquedaFunction(titulo,opcion) {
 
 
             $("#btn_buscar" ).click(function() {
-            var codigo=$("#btn_incidencia").val();
+            var codigo=$("#codigo_orden").val();
 
              $.ajax({                        
-                            url:'{{ route('BuscarIncidencia') }}',
+                            url:'{{ route('BuscarOrdenServicios') }}',
                              type: 'POST',
                              data:{
                                     "_token": "{{ csrf_token() }}",
@@ -338,25 +321,28 @@ function busquedaFunction(titulo,opcion) {
                                 },
                             success: function(respuesta)             
                             {
-
+                                console.log(respuesta);
                                 $.each(respuesta.data,function(index,element)
                                     { 
                                       
-                                      $("#idCodigo").val(element.idInsidencia);
+                                      $("#id").val(element.id);
 
-                                      $("#codigo").val(element.codigoEquipoIncidencia);
+                                      $("#codigo").val(element.codigo);
 
-                                      $("#equipo_incidencia").val(element. descriptionTipoInsicencia);
-                                      $("#id_incidencia").val(element.idTipoInsicencia);
+                                       $("#prioridad option[value="+element.prioridad+"]").attr("selected",true);
 
-                                      $("#id_equipo").val(element.idEquipo);
-                                      $("#equipo_padre").val(element.descripcionEquipo);
+                                      $("#incidencias").val(element.incidenciaDes);
+                                      $("#id_incidencia").val(element.idIncidencia);
 
-                                      $("#tienda").val(element.nombreEmpresa);
-                                      $("#id_tienda").val(element.idEmpresa);
+                                      $("#tipo_mantenimiento").val(element.manteDes);
+                                      $("#id_tipo_mantenimiento").val(element.idMante);
 
-                                      $("#descripcion").val(element.descripIncidencia);
-                                      $( "#datepicker" ).datepicker().val(element.fecha_incidencia);
+                                       $("#estado option[value="+element.estado+"]").attr("selected",true);
+
+                                      
+                                      $("#descripcion").val(element.descripcion);
+
+                                      $( "#datepicker" ).datepicker().val(element.fecha);
 
 
                                     });
@@ -376,15 +362,15 @@ function busquedaFunction(titulo,opcion) {
 
        $("#btnActualizar" ).click(function() {
         $.ajax({                        
-                            url:'{{ route('ActualizarIncidencia') }}',
-                             type: 'POST',           
-                            data: $("#incidencia_equipo").serialize(), 
+                            url:'{{ route('ordenServicioActualizar') }}',
+                            type: 'POST',           
+                            data: $("#form_order_servicio").serialize(), 
                             success: function(data)             
                             {
                                    Swal.fire({
                                 position: 'top-end',
                                 type: 'success',
-                                title: 'Se actuzalizo correctamente su insidencia',
+                                title: 'Se actuzalizo correctamente su orden de servicio',
                                 showConfirmButton: false,
                                 timer: 1500
                                  })

@@ -71,7 +71,11 @@ Route::post('listarTipos/', [ 'uses' => 'TipoController@listarTipos' ])->name('l
 
 Route::resource('incidencias', 'IncidenciasController');
 
+Route::post('BuscarOrdenServicios/buscar', [ 'uses' => 'OrdenServicioController@BuscarOrdenServicios' ])->name('BuscarOrdenServicios');
+Route::post('ordenServicio/create', [ 'uses' => 'OrdenServicioController@ordenServicioCreate' ])->name('ordenServicioCreate');
+Route::post('ordenServicio/actualizar', [ 'uses' => 'OrdenServicioController@ordenServicioActualizar' ])->name('ordenServicioActualizar');
 Route::resource('ordenServicio','OrdenServicioController');
+
 Route::resource('programarOrdenServicio','ProgramacionOrdenController');
 //FIN
 
