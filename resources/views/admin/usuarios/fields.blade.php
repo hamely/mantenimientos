@@ -12,7 +12,7 @@
 
 <div class="form-group col-sm-6">
     {!! Form::label('Contraseña', 'Contraseña:') !!}
-    {!! Form::text('passwordd', null, ['class' => 'form-control']) !!}
+    {!! Form::text('', null, ['class' => 'form-control','name'=>'password']) !!}
 </div>
 <!-- Password Field -->
 <div class="form-group col-sm-6">

@@ -129,12 +129,13 @@ class UsuarioController extends AppBaseController
 
             return redirect(route('usuarios.index'));
         }
-        if(is_null($request->passwordd))
+        if(is_null($request->password))
         {
 
             $user = User::find($id);
             $user->name = $request->name;
             $user->email = $request->email;
+            $user->privilege = $request->privilege;
             $user->save();
 
         }else
@@ -142,7 +143,8 @@ class UsuarioController extends AppBaseController
             $user = User::find($id);
             $user->name = $request->name;
             $user->email = $request->email;
-            $user->password = bcrypt( $request->input('password1') );
+            $user->privilege = $request->privilege;
+            $user->password = bcrypt( $request->input('password') );
             $user->save();
 
         }

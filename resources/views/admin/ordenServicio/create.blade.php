@@ -324,12 +324,13 @@ function busquedaFunction(titulo,opcion) {
                                 console.log(respuesta);
                                 $.each(respuesta.data,function(index,element)
                                     { 
-                                      
+                                      console.log(element.id_usuario_supervisor);
                                       $("#id").val(element.id);
 
                                       $("#codigo").val(element.codigo);
 
-                                       $("#prioridad option[value="+element.prioridad+"]").attr("selected",true);
+
+                                       $("#prioridad option[value="+element.prioridad+"]").attr("selected",'selected');
 
                                       $("#incidencias").val(element.incidenciaDes);
                                       $("#id_incidencia").val(element.idIncidencia);
@@ -337,9 +338,10 @@ function busquedaFunction(titulo,opcion) {
                                       $("#tipo_mantenimiento").val(element.manteDes);
                                       $("#id_tipo_mantenimiento").val(element.idMante);
 
-                                       $("#estado option[value="+element.estado+"]").attr("selected",true);
+                                      $("#estado option[value="+element.estado+"]").attr("selected",'selected');
 
-                                      
+                                      $("#id_usuario_supervisor option[value="+element.id_usuario_supervisor+"]").attr("selected",'selected');
+                                        
                                       $("#descripcion").val(element.descripcion);
 
                                       $( "#datepicker" ).datepicker().val(element.fecha);

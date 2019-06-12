@@ -44,10 +44,10 @@
                       <thead style="background-color: #5A738E;color:#FFFFFF;">
                         <tr>
                           <th>Nº</th>
+                          <th>Codigo</th>
                           <th>Orden</th>
-                          <th>Cliente</th>
-                          <th>Usuario</th>
-                          <th>Prioridad</th>
+                          <th>Supervisor</th>
+                          <th>Descripción</th>
                           <th>Estado</th>
                    
                         </tr>
@@ -56,10 +56,22 @@
                           @foreach($data as $item)
                             <tr>
                                 <td> {{$item->id}}</td>
-                                <td>{{$item->descripcion}}</td>
-                                <td>michael</td>                          
-                                <td>{{$item->nameUser}}</td> 
+                                <td> {{$item->codigo}}</td>
                                 <td>{{$item->prioridad}}</td>
+                                <td>
+                                    @foreach($usuarios as $itemp)
+
+                                        @if($itemp->id==$item->id_usuario_supervisor)
+
+                                             {{$itemp->name}}
+
+                                        @endif
+
+                                    @endforeach
+                                   
+
+                                </td>                          
+                                <td>{{$item->descripcion}}</td>
                                 <td>{{$item->estado}}</td>  
                             </tr>
                           @endforeach

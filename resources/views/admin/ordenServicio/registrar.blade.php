@@ -1,5 +1,16 @@
 <form id="form_order_servicio" name="form_order_servicio" data-parsley-validate class="form-horizontal form-label-left">
 {{ csrf_field() }}
+
+<div class="form-group">
+    <label class="control-label col-md-1 col-sm-1 col-xs-1" for="last-name">Supervisor  </label>
+    <div class="col-md-3 col-sm-6 col-xs-12">
+        <select class="form-control" id="id_usuario_supervisor" name="id_usuario_supervisor">
+            @foreach($usuario as $item)
+                 <option value="{{$item->id}}">{{$item->name}}</option>
+            @endforeach
+        </select>
+    </div>
+</div>
 <div class="form-group">
      <label class="control-label col-md-1 col-sm-1 col-xs-1" for="first-name">Código
     </label>
@@ -7,6 +18,7 @@
         <input type="text" id="codigo" name="codigo"  required="required" class="form-control col-md-7 col-xs-12">
         <input type="hidden" id="id" name="id"   class="form-control col-md-7 col-xs-12">
     </div>
+
 
 </div>
 <div class="form-group">

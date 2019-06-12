@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
+use App\User;
+use Illuminate\Support\Facades\Auth;
 class OrdenServicioController extends Controller
 {
     /**
@@ -13,15 +15,16 @@ class OrdenServicioController extends Controller
      */
     public function index()
     {
-        
+       $usuarios = User::where('privilege', 'supervisor')->get();
+
        $data=DB::table('orden_servicio')
-                                ->select('orden_servicio.id','orden_servicio.estado','orden_servicio.fecha','orden_servicio.descripcion','orden_servicio.codigo', 'orden_servicio.codigo','orden_servicio.prioridad','equipo_incidencia.id as idIncidencia','equipo_incidencia.descripcion as incidenciaDes','tipo_mantenimientos.id as idMante','tipo_mantenimientos.descripcion as manteDes','users.name as nameUser')
+                                ->select('orden_servicio.id','orden_servicio.estado','orden_servicio.fecha','orden_servicio.descripcion','orden_servicio.prioridad', 'orden_servicio.codigo','orden_servicio.prioridad','equipo_incidencia.id as idIncidencia','equipo_incidencia.descripcion as incidenciaDes','tipo_mantenimientos.id as idMante','tipo_mantenimientos.descripcion as manteDes','users.name as nameUser','orden_servicio.id_usuario_supervisor as id_usuario_supervisor')
                                 ->join('tipo_mantenimientos', 'tipo_mantenimientos.id', '=', 'orden_servicio.id_tipo_mantenimiento')
                                 ->join('equipo_incidencia', 'equipo_incidencia.id', '=', 'orden_servicio.id_incidencia')
                                 ->join('users', 'users.id', '=', 'orden_servicio.id_usuario')
                                 ->get();
-        
-        return view('admin.ordenServicio.index',['data' =>$data]);
+    
+        return view('admin.ordenServicio.index',['data' =>$data,'usuarios' =>$usuarios]);
     }
 
     /**
@@ -31,7 +34,11 @@ class OrdenServicioController extends Controller
      */
     public function create()
     {
-        return view('admin.ordenServicio.create');
+          
+       
+        $usuarios = User::where('privilege', 'supervisor')->get();
+        
+        return view('admin.ordenServicio.create',['usuario'=>$usuarios]);
     }
 
     /**
@@ -48,6 +55,8 @@ class OrdenServicioController extends Controller
     public function ordenServicioCreate(Request $request)
     {
 
+        $user = Auth::user();
+
         DB::table('orden_servicio')->insert(
                 [
 
@@ -58,7 +67,8 @@ class OrdenServicioController extends Controller
                 'estado' => $request->estado,
                 'fecha' => $request->fecha,
                 'descripcion'=>$request->descripcion,
-                'id_usuario'=>1
+                'id_usuario'=>$user->id,
+                'id_usuario_supervisor'=>$request->id_usuario_supervisor
                 ]
             );
        
@@ -73,7 +83,7 @@ class OrdenServicioController extends Controller
         $codigo=$request->codigo;
 
         $resultado=DB::table('orden_servicio')
-                                ->select('orden_servicio.id','orden_servicio.estado','orden_servicio.fecha','orden_servicio.descripcion','orden_servicio.codigo', 'orden_servicio.codigo','orden_servicio.prioridad','equipo_incidencia.id as idIncidencia','equipo_incidencia.descripcion as incidenciaDes','tipo_mantenimientos.id as idMante','tipo_mantenimientos.descripcion as manteDes')
+                                ->select('orden_servicio.id','orden_servicio.estado','orden_servicio.fecha','orden_servicio.descripcion','orden_servicio.codigo', 'orden_servicio.codigo','orden_servicio.prioridad','equipo_incidencia.id as idIncidencia','equipo_incidencia.descripcion as incidenciaDes','tipo_mantenimientos.id as idMante','tipo_mantenimientos.descripcion as manteDes','orden_servicio.id_usuario_supervisor as id_usuario_supervisor')
                                 ->join('tipo_mantenimientos', 'tipo_mantenimientos.id', '=', 'orden_servicio.id_tipo_mantenimiento')
                                 ->join('equipo_incidencia', 'equipo_incidencia.id', '=', 'orden_servicio.id_incidencia')
                                 ->join('users', 'users.id', '=', 'orden_servicio.id_usuario')
@@ -84,7 +94,9 @@ class OrdenServicioController extends Controller
 
     public function ordenServicioActualizar(Request $request)
     {
-         DB::table('orden_servicio')
+        $user = Auth::user();
+
+        DB::table('orden_servicio')
             ->where('id', '=', $request->id)
             ->update([
                 'codigo' => $request->codigo, 
@@ -94,6 +106,8 @@ class OrdenServicioController extends Controller
                 'estado' => $request->estado,
                 'fecha' => $request->fecha,
                 'descripcion'=>$request->descripcion,
+                'id_usuario'=>$user->id,
+                'id_usuario_supervisor'=>$request->id_usuario_supervisor
             ]); 
     }
 

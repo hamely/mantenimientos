@@ -19,6 +19,7 @@ class CreateOrdenServicioTable extends Migration
             $table->integer('id_incidencia');
             $table->integer('id_tipo_mantenimiento');
             $table->integer('id_usuario');
+            $table->integer('id_usuario_supervisor');
             $table->integer('prioridad');
             $table->string('fecha');
             $table->text('descripcion');
