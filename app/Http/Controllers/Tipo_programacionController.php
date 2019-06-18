@@ -80,7 +80,7 @@ class Tipo_programacionController extends AppBaseController
             return redirect(route('tipoProgramacions.index'));
         }
 
-        return view('tipo_programacions.show')->with('tipoProgramacion', $tipoProgramacion);
+        return view('admin.tipo_programacions.show')->with('tipoProgramacion', $tipoProgramacion);
     }
 
     /**
