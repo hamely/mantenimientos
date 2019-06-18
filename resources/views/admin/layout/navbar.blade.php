@@ -71,7 +71,7 @@
                       <li><a href="{{URL::route('tipoIncidencias.index') }}">Tipo incidencias</a></li>
                       <li><a href="{{URL::route('medidors.index') }}">Medidores</a></li>
                       <li><a href="{{URL::route('tiendas.index') }}">Tiendas</a></li>
-                      
+                         <li><a href="{{URL::route('tipoProgramacions.index') }}">tipo programacion</a></li>
                     </ul>
                   </li>
 
