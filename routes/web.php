@@ -103,3 +103,5 @@ Route::resource('medidors', 'MedidorController');
 
 
 Route::resource('tiendas', 'TiendaController');
+
+Route::resource('tipoProgramacions', 'Tipo_programacionController');
