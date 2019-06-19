@@ -1,30 +1,12 @@
 <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
 
 <div class="form-group">
-     <label class="control-label col-md-1 col-sm-1 col-xs-1" for="first-name">Id
+     <label class="control-label col-md-1 col-sm-1 col-xs-1" for="first-name">Código
     </label>
     <div class="col-md-3 col-sm-3 col-xs-6">
         <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12">
     </div>
-     <label class="control-label col-md-1 col-sm-1 col-xs-1" for="first-name"> <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">Activo Prioridad 
-    </label>
 
-    <div class="col-md-3 col-sm-3 col-xs-6">
-      
-      <select class="form-control" id="prioridad" name="prioridad">
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-          <option value="6">6</option>
-          <option value="7">7</option>
-          <option value="8">8</option>
-          <option value="9">9</option>
-          <option value="10">10</option>
-       </select>
-
-    </div>
 </div>
 <div class="form-group">
     <label class="control-label col-md-1 col-sm-1 col-xs-1" for="last-name">Descripción    </label>
@@ -32,15 +14,7 @@
         <input type="text" id="descripcion" name="descripcion" required="required" class="form-control col-md-7 col-xs-12">
     </div>
 </div>
-<div class="form-group">
-    <label class="control-label col-md-1 col-sm-1 col-xs-1" for="last-name">Clase</label>
-    <div class="col-md-3 col-sm-6 col-xs-12">
-        <input type="text" id="tipo_mantenimiento" name="tipo_mantenimiento" required="required" class="form-control col-md-7 col-xs-12">
-    </div>
-    <div class="col-md-3 col-sm-6 col-xs-12">
-        <button type="button" class="btn btn-info btn-xs" onclick="busquedaFunction('Tipo mantenimiento ','1')"><span class="fa fa-search-plus"></span></button>
-    </div>
-</div>
+
 <hr/>
 <div class="panel panel-default">
   <div class="panel-heading">Método de programación</div>
