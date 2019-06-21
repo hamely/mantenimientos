@@ -7,12 +7,11 @@
         <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12">
     </div>
 
-</div>
-<div class="form-group">
     <label class="control-label col-md-1 col-sm-1 col-xs-1" for="last-name">Descripción    </label>
-    <div class="col-md-3 col-sm-6 col-xs-12">
+    <div class="col-md-6 col-sm-6 col-xs-12">
         <input type="text" id="descripcion" name="descripcion" required="required" class="form-control col-md-7 col-xs-12">
     </div>
+
 </div>
 
 <hr/>
@@ -115,27 +114,21 @@
     
   </div>
 </div>
+
 <div class="form-group">    
-    <label class="control-label col-md-1 col-sm-1 col-xs-1" for="last-name">Prioridad programada
-    </label>
-    <div class="col-md-3 col-sm-6 col-xs-12">
-        <input type="number" id="prioridad" name="prioridad" required="required" class="form-control col-md-7 col-xs-12">
-    </div>
     
-</div>
-<div class="form-group">    
-    <label class="control-label col-md-1 col-sm-1 col-xs-1" for="last-name">TM Estimado
+     <label class="control-label col-md-1 col-sm-1 col-xs-1" for="last-name">TM Estimado
     </label>
     <div class="col-md-3 col-sm-6 col-xs-12">
         <input type="text" id="tm" name="tm" required="required" class="form-control col-md-7 col-xs-12">
     </div>
-</div>
-<div class="form-group">    
-    <label class="control-label col-md-1 col-sm-1 col-xs-1" for="last-name">Dias estimados para terminar
+
+    <label class="control-label col-md-3 col-sm-1 col-xs-1" for="last-name">Dias estimados para terminar
     </label>
     <div class="col-md-3 col-sm-6 col-xs-12">
         <input type="text" id="dias_estimados" name="dias_estimados" required="required" class="form-control col-md-7 col-xs-12">
     </div>
+
 </div>
 <div class="form-group">
     <label class="control-label col-md-1 col-sm-1 col-xs-1">Tienda
@@ -143,26 +136,32 @@
     <div class="col-md-3 col-sm-6 col-xs-12">
         <input id="tienda" name="tienda" class="date-picker form-control col-md-7 col-xs-12" required="required" type="text">
     </div>
-</div>
-<div class="form-group">
-    <label class="control-label col-md-1 col-sm-1 col-xs-1">Estado
-    </label>
-    <div class="col-md-3 col-sm-6 col-xs-12">
-    <select class="form-control" id="estado">
-      <option>Habilitado</option>
-      <option>Deshabilitado</option>
-    </select>
+
+    <div class="form-group">
+        <label class="control-label col-md-1 col-sm-1 col-xs-1">
+            Estado
+        </label>
+        <div class="col-md-2 col-sm-6 col-xs-12">
+            <select class="form-control" id="estado">
+              <option>Habilitado</option>
+              <option>Deshabilitado</option>
+            </select>
+        </div>
+
+         <label class="control-label col-md-2 col-sm-1 col-xs-1">Fecha de orden
+        </label>
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <input id="fecha_orden" name="fecha_orden" class="date-picker form-control col-md-7 col-xs-12" required="required" type="date">
+        </div>
     </div>
+
+    
+        
+
 </div>
 
-<div class="form-group">
-    <label class="control-label col-md-1 col-sm-1 col-xs-1">Fecha de orden
-    </label>
-    <div class="col-md-3 col-sm-6 col-xs-12">
-        <input id="fecha_orden" name="fecha_orden" class="date-picker form-control col-md-7 col-xs-12" required="required" type="date">
-    </div>
-    
-</div>
+
+
 
 
 <div class="form-group">
@@ -174,6 +173,51 @@
 
 </form>
 
+<div class="panel panel-default">
+  <div class="panel-heading">PROMACIÓN</div>
 
+      <div class="panel-body">
+      
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Nombre y apellido</th>
+            <th>Cargo</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>John</td>
+            <td>Doe</td>
+            <td>Fecha</td>
+            <td>
+                <button type="button" class="btn btn-success btn-xs">responsable</button>
+            </td>
+          </tr>
+          <tr>
+            <td>Mary</td>
+            <td>Moe</td>
+            <td>Fecha</td>
+            <td>
+                <button type="button" class="btn btn-success btn-xs">responsable</button>
+            </td>
+          </tr>
+          <tr>
+            <td>July</td>
+            <td>Dooley</td>
+            <td>Fecha</td>
+            <td>
+                <button type="button" class="btn btn-success btn-xs">responsable</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+        
+      </div>
+
+</div>
 
 
