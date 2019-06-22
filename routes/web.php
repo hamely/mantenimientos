@@ -77,6 +77,7 @@ Route::post('ordenServicio/actualizar', [ 'uses' => 'OrdenServicioController@ord
 Route::resource('ordenServicio','OrdenServicioController');
 
 Route::resource('programarOrdenServicio','ProgramacionOrdenController');
+Route::post('programacion/create', [ 'uses' => 'ProgramacionOrdenController@programacionCreate' ])->name('programacionCreate');
 //FIN
 
 Route::resource('tipos', 'TipoController');
@@ -99,7 +100,7 @@ Route::resource('equipo_incidenciaController', 'Equipo_incidenciaController');
 Route::resource('tipoIncidencias', 'TipoIncidenciaController');
 
 Route::resource('medidors', 'MedidorController');
-
+Route::post('listarMedidor/',['uses' =>'MedidorController@listarMedidor'])->name('listarMedidor');
 
 
 Route::resource('tiendas', 'TiendaController');

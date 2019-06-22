@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\User;
+use Illuminate\Support\Facades\Auth;
 class ProgramacionOrdenController extends Controller
 {
     /**
@@ -13,6 +14,7 @@ class ProgramacionOrdenController extends Controller
      */
     public function index()
     {
+        
         return view('admin.programarOrden.index');
     }
 
@@ -23,7 +25,9 @@ class ProgramacionOrdenController extends Controller
      */
     public function create()
     {
-        return view('admin.programarOrden.create');
+        $usuarios = User::where('privilege', 'tecnico')->get();
+
+        return view('admin.programarOrden.create',['usuarios' =>$usuarios]);
     }
 
     /**
@@ -80,5 +84,11 @@ class ProgramacionOrdenController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function  programacionCreate(request $request)
+    {
+
+        return $request->all();
     }
 }

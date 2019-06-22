@@ -153,4 +153,11 @@ class MedidorController extends AppBaseController
 
         return redirect(route('medidors.index'));
     }
+
+    public function listarMedidor(Request $request)
+    {
+        $listar = $this->medidorRepository->all();
+        return response(['data' => $listar]);
+    }
+     
 }
