@@ -9,7 +9,7 @@ use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
 use Response;
-
+use DB;
 class AreaController extends AppBaseController
 {
     /** @var  AreaRepository */
@@ -42,7 +42,13 @@ class AreaController extends AppBaseController
      */
     public function create()
     {
-        return view('admin.areas.create');
+        $maxArea= DB::table('areas')
+        ->select(DB::raw('max(areas.codigo) as codigo'))
+        ->get()[0];
+
+        $max=(int)($maxArea->codigo)+1;
+        
+        return view('admin.areas.create',['max'=>$max]);
     }
 
     /**
