@@ -9,6 +9,7 @@ use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
 use Response;
+use DB;
 
 class tipo_mantenimientoController extends AppBaseController
 {
@@ -41,8 +42,14 @@ class tipo_mantenimientoController extends AppBaseController
      * @return Response
      */
     public function create()
-    {
-        return view('admin.tipo_mantenimientos.create');
+    {    
+        $maxtipo= DB::table('tipo_mantenimientos')
+        ->select(DB::raw('max(tipo_mantenimientos.codigo) as codigo'))
+        ->get()[0];
+
+        $max=(int)($maxtipo->codigo)+1;
+
+        return view('admin.tipo_mantenimientos.create',['max'=>$max]);
     }
 
     /**
